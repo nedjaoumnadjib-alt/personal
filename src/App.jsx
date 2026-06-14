@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useRef, useState } from "react";
 import { supabase, isSupabaseEnabled } from "./supabaseClient";
 import ElectricBorder from "./ElectricBorder";
@@ -135,6 +136,16 @@ const TRANSLATIONS = {
       greeting: "Hello, I'm",
       name: "ABDERRAHMANE NADJIB",
       title: "IM JUST MAN CAN DO WHAT THEY CANT DO",
+=======
+import { useState } from "react";
+const TRANSLATIONS = {
+  en: {
+    nav: { home: "Home", about: "About", services: "Services", portfolio: "Portfolio", contact: "Contact", dashboard: "Dashboard" },
+    hero: {
+      greeting: "Hello, I'm",
+      name: "ABDERRAHMANE NADJIB",
+      title: "Full-Stack Developer & Software Engineer",
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       subtitle: "I build custom websites, web apps, desktop software, and automation scripts — tailored precisely to your needs.",
       cta: "Start a Project",
       ctaSecondary: "View My Work",
@@ -150,12 +161,21 @@ const TRANSLATIONS = {
       title: "Services & Pricing",
       subtitle: "Transparent pricing, professional results.",
       items: [
+<<<<<<< HEAD
         { icon: "ti-world-www", name: "Custom Website", desc: "Responsive, SEO-optimized websites tailored to your brand identity.", price: "From 2000 DZD" },
         { icon: "ti-apps", name: "Web Application", desc: "Full-stack web apps with authentication, dashboards, and APIs.", price: "From 5000 DZD" },
         { icon: "ti-device-desktop", name: "Desktop Application", desc: "Cross-platform desktop apps with modern UI and system integrations.", price: "From 4000 DZD" },
         { icon: "ti-terminal-2", name: "Scripts & Automation", desc: "Custom scripts to automate repetitive tasks and workflows.", price: "From 800 DZD" },
         { icon: "ti-bug", name: "Bug Fixing & Support", desc: "Diagnose and fix issues in existing codebases, fast turnaround.", price: "From 500 DZD" },
         { icon: "ti-headset", name: "Ongoing Maintenance", desc: "Monthly support plans to keep your software running smoothly.", price: "From 1000 DZD/mo" },
+=======
+        { icon: "ti-world-www", name: "Custom Website", desc: "Responsive, SEO-optimized websites tailored to your brand identity.", price: "From  pages $200" },
+        { icon: "ti-apps", name: "Web Application", desc: "Full-stack web apps with authentication, dashboards, and APIs.", price: "From pages $500" },
+        { icon: "ti-device-desktop", name: "Desktop Application", desc: "Cross-platform desktop apps with modern UI and system integrations.", price: "From pages $400" },
+        { icon: "ti-terminal-2", name: "Scripts & Automation", desc: "Custom scripts to automate repetitive tasks and workflows.", price: "From pages $80" },
+        { icon: "ti-bug", name: "Bug Fixing & Support", desc: "Diagnose and fix issues in existing codebases, fast turnaround.", price: "From pages $50" },
+        { icon: "ti-headset", name: "Ongoing Maintenance", desc: "Monthly support plans to keep your software running smoothly.", price: "From pages $100/mo" },
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       ],
     },
     portfolio: {
@@ -196,7 +216,11 @@ const TRANSLATIONS = {
       subtitle: "Tell me about your project and I'll get back to you within 24 hours.",
       fields: { name: "Full Name", email: "Email Address", type: "Project Type", budget: "Budget", desc: "Project Description", submit: "Send Request" },
       types: ["Website", "Web Application", "Desktop App", "Script / Automation", "Bug Fix / Support", "Other"],
+<<<<<<< HEAD
       budgets: ["< 1000 DZD", "1000–5000 DZD", "5000–20000 DZD", "20000–50000 DZD", "50000+ DZD", "Let's discuss"],
+=======
+      budgets: ["< $100", "$100–$500", "$500–$2000", "$2000–$5000", "$5000+", "Let's discuss"],
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       success: "Your request has been sent! I'll reply within 24 hours.",
     },
     admin: {
@@ -210,11 +234,19 @@ const TRANSLATIONS = {
     status: { title: "Project Status", placeholder: "Enter your project ID...", check: "Check Status", notFound: "No project found with that ID." },
   },
   fr: {
+<<<<<<< HEAD
     nav: { home: "Accueil", rating: "Avis", about: "À propos", services: "Services", portfolio: "Portfolio", contact: "Contact", dashboard: "Tableau de bord" },
     hero: {
       greeting: "Bonjour, je suis",
       name: "ABDERRAHMANE NADJIB",
       title: "IM JUST MAN CAN DO WHAT THEY CANT DO",
+=======
+    nav: { home: "Accueil", about: "À propos", services: "Services", portfolio: "Portfolio", contact: "Contact", dashboard: "Tableau de bord" },
+    hero: {
+      greeting: "Bonjour, je suis",
+      name: "ABDERRAHMANE NADJIB",
+      title: "Développeur Full-Stack & Ingénieur Logiciel",
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       subtitle: "Je crée des sites web, des applications web, des logiciels desktop et des scripts d'automatisation — sur mesure pour vos besoins.",
       cta: "Démarrer un projet",
       ctaSecondary: "Voir mes travaux",
@@ -230,12 +262,21 @@ const TRANSLATIONS = {
       title: "Services & Tarifs",
       subtitle: "Tarification transparente, résultats professionnels.",
       items: [
+<<<<<<< HEAD
         { icon: "ti-world-www", name: "Site web personnalisé", desc: "Sites responsive et optimisés SEO adaptés à votre marque.", price: "À partir de 2000 DZD" },
         { icon: "ti-apps", name: "Application web", desc: "Applications full-stack avec authentification, tableaux de bord et APIs.", price: "À partir de 5000 DZD" },
         { icon: "ti-device-desktop", name: "Application desktop", desc: "Applications desktop multiplateformes avec interface moderne.", price: "À partir de 4000 DZD" },
         { icon: "ti-terminal-2", name: "Scripts & Automatisation", desc: "Scripts personnalisés pour automatiser les tâches répétitives.", price: "À partir de 800 DZD" },
         { icon: "ti-bug", name: "Correction de bugs", desc: "Diagnostic et correction rapide des problèmes dans votre code.", price: "À partir de 500 DZD" },
         { icon: "ti-headset", name: "Maintenance continue", desc: "Plans de support mensuel pour garder votre logiciel opérationnel.", price: "À partir de 1000 DZD/mois" },
+=======
+        { icon: "ti-world-www", name: "Site web personnalisé", desc: "Sites responsive et optimisés SEO adaptés à votre marque.", price: "À partir de 200$" },
+        { icon: "ti-apps", name: "Application web", desc: "Applications full-stack avec authentification, tableaux de bord et APIs.", price: "À partir de 500$" },
+        { icon: "ti-device-desktop", name: "Application desktop", desc: "Applications desktop multiplateformes avec interface moderne.", price: "À partir de 400$" },
+        { icon: "ti-terminal-2", name: "Scripts & Automatisation", desc: "Scripts personnalisés pour automatiser les tâches répétitives.", price: "À partir de 80$" },
+        { icon: "ti-bug", name: "Correction de bugs", desc: "Diagnostic et correction rapide des problèmes dans votre code.", price: "À partir de 50$" },
+        { icon: "ti-headset", name: "Maintenance continue", desc: "Plans de support mensuel pour garder votre logiciel opérationnel.", price: "À partir de 100$/mois" },
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       ],
     },
     portfolio: {
@@ -254,10 +295,17 @@ const TRANSLATIONS = {
     testimonials: {
       title: "Ce que disent les clients",
       items: [
+<<<<<<< HEAD
         { name: "Sarah M.", role: "Fondatrice de Startup", text: "Livraison parfaite — le MVP est sorti à temps et le code était propre. La communication est restée claire du début à la fin.", rating: 5 },
         { name: "Karim B.", role: "Propriétaire E-commerce", text: "Nos ventes ont rapidement progressé après le lancement. La boutique est aboutie et facile à gérer.", rating: 5 },
         { name: "Fouad A.", role: "Directrice Marketing", text: "La refonte du site a parfaitement capturé notre marque. C'était rapide, fiable et exactement ce dont nous avions besoin.", rating: 5 },
         { name: "Ahmed T.", role: "Directeur des Opérations", text: "L'automatisation nous a fait gagner du temps chaque semaine. La solution était pratique, bien construite et livrée vite.", rating: 5 },
+=======
+        { name: "Sarah M.", role: "Fondatrice de Startup", text: "NADJIB a livré notre MVP en 3 semaines. Code propre, dans les délais, excellente communication.", rating: 5 },
+        { name: "Karim B.", role: "Propriétaire E-commerce", text: "La boutique qu'il a construite a doublé nos conversions le premier mois. Absolument professionnel.", rating: 5 },
+        { name: "Fouad A.", role: "Directrice Marketing", text: "Notre nouveau site est magnifique. Il a immédiatement compris notre vision de marque.", rating: 5 },
+        { name: "Ahmed T.", role: "Directeur des Opérations", text: "Les scripts d'automatisation nous ont économisé 20+ heures par semaine. Retour sur investissement incroyable.", rating: 5 },
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       ],
     },
     faq: {
@@ -274,15 +322,25 @@ const TRANSLATIONS = {
     contact: {
       title: "Démarrer un projet",
       subtitle: "Parlez-moi de votre projet et je vous répondrai dans les 24 heures.",
+<<<<<<< HEAD
       fields: { name: "Nom complet", email: "Adresse email", type: "Type de projet", budget: "Budget", desc: "Description du projet", rating: "Note", review: "Avis", submit: "Envoyer la demande" },
       reviewRole: "Client",
       types: ["Site web", "Application web", "Application desktop", "Script / Automatisation", "Correction de bug / Support", "Autre"],
       budgets: ["< 1000 DZD", "1000–5000 DZD", "5000–20000 DZD", "20000–50000 DZD", "50000+ DZD", "À discuter"],
+=======
+      fields: { name: "Nom complet", email: "Adresse email", type: "Type de projet", budget: "Budget", desc: "Description du projet", submit: "Envoyer la demande" },
+      types: ["Site web", "Application web", "Application desktop", "Script / Automatisation", "Correction de bug / Support", "Autre"],
+      budgets: ["< 100$", "100$–500$", "500$–2000$", "2000$–5000$", "5000$+", "À discuter"],
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       success: "Votre demande a été envoyée! Je vous répondrai dans les 24 heures.",
     },
     admin: {
       title: "Tableau de bord Admin",
+<<<<<<< HEAD
       subtitle: "Surveillez les demandes de projet client et leur avancée depuis un espace sécurisé.",
+=======
+      subtitle: "Demandes de projet des clients.",
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       cols: ["Nom", "Email", "Type", "Budget", "Statut", "Date"],
       statuses: { pending: "En attente", reviewed: "Examiné", accepted: "Accepté", declined: "Refusé" },
       empty: "Aucune demande pour l'instant.",
@@ -291,11 +349,19 @@ const TRANSLATIONS = {
     status: { title: "Statut du projet", placeholder: "Entrez votre ID de projet...", check: "Vérifier", notFound: "Aucun projet trouvé avec cet ID." },
   },
   ar: {
+<<<<<<< HEAD
     nav: { home: "الرئيسية", rating: "التقييم", about: "عني", services: "الخدمات", portfolio: "أعمالي", contact: "تواصل", dashboard: "لوحة التحكم" },
     hero: {
       greeting: "مرحباً، أنا",
       name: "عبد الرحمن نجيب",
       title: "IM JUST MAN CAN DO WHAT THEY CANT DO",
+=======
+    nav: { home: "الرئيسية", about: "عني", services: "الخدمات", portfolio: "أعمالي", contact: "تواصل", dashboard: "لوحة التحكم" },
+    hero: {
+      greeting: "مرحباً، أنا",
+      name: "عبد الرحمن نجيب",
+      title: "مطوّر ويب متكامل ومهندس برمجيات",
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       subtitle: "أبني مواقع إلكترونية، تطبيقات ويب، برامج سطح المكتب وسكريبتات الأتمتة — مُصمَّمة خصيصاً لاحتياجاتك.",
       cta: "ابدأ مشروعك",
       ctaSecondary: "استعرض أعمالي",
@@ -311,12 +377,21 @@ const TRANSLATIONS = {
       title: "الخدمات والأسعار",
       subtitle: "أسعار شفافة، نتائج احترافية.",
       items: [
+<<<<<<< HEAD
         { icon: "ti-world-www", name: "موقع إلكتروني مخصص", desc: "مواقع متجاوبة ومحسّنة لمحركات البحث تعكس هوية علامتك التجارية.", price: "يبدأ من 2000 DZD" },
         { icon: "ti-apps", name: "تطبيق ويب", desc: "تطبيقات متكاملة مع مصادقة ولوحات تحكم وواجهات برمجية.", price: "يبدأ من 5000 DZD" },
         { icon: "ti-device-desktop", name: "تطبيق سطح المكتب", desc: "تطبيقات متعددة المنصات بواجهة حديثة وتكاملات النظام.", price: "يبدأ من 4000 DZD" },
         { icon: "ti-terminal-2", name: "سكريبتات وأتمتة", desc: "سكريبتات مخصصة لأتمتة المهام المتكررة وتحسين سير العمل.", price: "يبدأ من 800 DZD" },
         { icon: "ti-bug", name: "إصلاح الأخطاء والدعم", desc: "تشخيص وإصلاح سريع للمشاكل في الأكواد البرمجية الموجودة.", price: "يبدأ من 500 DZD" },
         { icon: "ti-headset", name: "صيانة مستمرة", desc: "خطط دعم شهرية للحفاظ على تشغيل برمجياتك بسلاسة.", price: "يبدأ من 1000 DZD/شهر" },
+=======
+        { icon: "ti-world-www", name: "موقع إلكتروني مخصص", desc: "مواقع متجاوبة ومحسّنة لمحركات البحث تعكس هوية علامتك التجارية.", price: "يبدأ من 200$" },
+        { icon: "ti-apps", name: "تطبيق ويب", desc: "تطبيقات متكاملة مع مصادقة ولوحات تحكم وواجهات برمجية.", price: "يبدأ من 500$" },
+        { icon: "ti-device-desktop", name: "تطبيق سطح المكتب", desc: "تطبيقات متعددة المنصات بواجهة حديثة وتكاملات النظام.", price: "يبدأ من 400$" },
+        { icon: "ti-terminal-2", name: "سكريبتات وأتمتة", desc: "سكريبتات مخصصة لأتمتة المهام المتكررة وتحسين سير العمل.", price: "يبدأ من 80$" },
+        { icon: "ti-bug", name: "إصلاح الأخطاء والدعم", desc: "تشخيص وإصلاح سريع للمشاكل في الأكواد البرمجية الموجودة.", price: "يبدأ من 50$" },
+        { icon: "ti-headset", name: "صيانة مستمرة", desc: "خطط دعم شهرية للحفاظ على تشغيل برمجياتك بسلاسة.", price: "يبدأ من 100$/شهر" },
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       ],
     },
     portfolio: {
@@ -335,10 +410,17 @@ const TRANSLATIONS = {
     testimonials: {
       title: "ماذا يقول العملاء",
       items: [
+<<<<<<< HEAD
         { name: "سارة م.", role: "مؤسسة شركة ناشئة", text: "التسليم كان ممتازاً — المنتج الأولي خرج في الوقت المحدد والكود كان مرتباً. التواصل كان واضحاً منذ البداية.", rating: 5 },
         { name: "كريم ب.", role: "صاحب متجر إلكتروني", text: "المبيعات ارتفعت سريعاً بعد الإطلاق. المتجر أصبح محترف وسهل الإدارة.", rating: 5 },
         { name: "فؤاد أ.", role: "مديرة تسويق", text: "التصميم الجديد عكس علامتنا تماماً. كان سريعاً وموثوقاً وقدمنا ما نحتاجه." , rating: 5 },
         { name: "أحمد ت.", role: "مدير العمليات", text: "الأتمتة وفرت لنا وقتاً حقيقياً كل أسبوع. الحل كان عملياً ومبني جيداً وسُلم بسرعة.", rating: 5 },
+=======
+        { name: "سارة م.", role: "مؤسسة شركة ناشئة", text: "سلّم نجيب منتجنا الأولي في 3 أسابيع. كود نظيف، في الموعد، تواصل ممتاز.", rating: 5 },
+        { name: "كريم ب.", role: "صاحب متجر إلكتروني", text: "المتجر الذي بناه ضاعف تحويلاتنا في الشهر الأول. احترافية تامة.", rating: 5 },
+        { name: "فؤاد أ.", role: "مديرة تسويق", text: "موقعنا الجديد رائع. فهم رؤيتنا للعلامة التجارية فوراً.", rating: 5 },
+        { name: "أحمد ت.", role: "مدير العمليات", text: "سكريبتات الأتمتة وفّرت علينا أكثر من 20 ساعة أسبوعياً. عائد استثمار مذهل.", rating: 5 },
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       ],
     },
     faq: {
@@ -355,15 +437,25 @@ const TRANSLATIONS = {
     contact: {
       title: "ابدأ مشروعك",
       subtitle: "أخبرني عن مشروعك وسأرد عليك خلال 24 ساعة.",
+<<<<<<< HEAD
       fields: { name: "الاسم الكامل", email: "البريد الإلكتروني", type: "نوع المشروع", budget: "الميزانية", desc: "وصف المشروع", rating: "التقييم", review: "مراجعة", submit: "إرسال الطلب" },
       reviewRole: "عميل",
       types: ["موقع ويب", "تطبيق ويب", "تطبيق سطح المكتب", "سكريبت / أتمتة", "إصلاح أخطاء / دعم", "أخرى"],
       budgets: ["أقل من 1000 DZD", "1000–5000 DZD", "5000–20000 DZD", "20000–50000 DZD", "50000+ DZD", "للنقاش"],
+=======
+      fields: { name: "الاسم الكامل", email: "البريد الإلكتروني", type: "نوع المشروع", budget: "الميزانية", desc: "وصف المشروع", submit: "إرسال الطلب" },
+      types: ["موقع ويب", "تطبيق ويب", "تطبيق سطح المكتب", "سكريبت / أتمتة", "إصلاح أخطاء / دعم", "أخرى"],
+      budgets: ["أقل من 100$", "100$–500$", "500$–2000$", "2000$–5000$", "5000$+", "للنقاش"],
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       success: "تم إرسال طلبك! سأرد عليك خلال 24 ساعة.",
     },
     admin: {
       title: "لوحة تحكم المشرف",
+<<<<<<< HEAD
       subtitle: "راقب طلبات مشاريع العملاء وحالتها في لوحة آمنة واحدة.",
+=======
+      subtitle: "طلبات المشاريع من العملاء.",
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       cols: ["الاسم", "البريد الإلكتروني", "النوع", "الميزانية", "الحالة", "التاريخ"],
       statuses: { pending: "قيد الانتظار", reviewed: "مراجعة", accepted: "مقبول", declined: "مرفوض" },
       empty: "لا توجد طلبات بعد.",
@@ -374,6 +466,7 @@ const TRANSLATIONS = {
 };
 
 const colorMap = {
+<<<<<<< HEAD
   purple: { bg: "linear-gradient(135deg, #30206f 0%, #5943fc 100%)", border: "#7f6af8", text: "#e7e3ff", badge: "#7f6af8" },
   teal:   { bg: "linear-gradient(135deg, #0f4f4a 0%, #2bb29f 100%)", border: "#30d4b4", text: "#e8fffb", badge: "#30d4b4" },
   coral:  { bg: "linear-gradient(135deg, #8f3226 0%, #ff7d4b 100%)", border: "#ff9a5c", text: "#fff0eb", badge: "#ff9a5c" },
@@ -401,11 +494,27 @@ async function apiRequest(path, options = {}) {
 
   return payload.data ?? payload;
 }
+=======
+  purple: { bg: "#000000", border: "#534AB7", text: "#3C3489", badge: "#534AB7" },
+  teal:   { bg: "#000000", border: "#0F6E56", text: "#085041", badge: "#0F6E56" },
+  coral:  { bg: "#000000", border: "#993C1D", text: "#712B13", badge: "#993C1D" },
+  amber:  { bg: "#000000", border: "#854F0B", text: "#633806", badge: "#854F0B" },
+  blue:   { bg: "#000000", border: "#185FA5", text: "#0C447C", badge: "#185FA5" },
+  green:  { bg: "#000000", border: "#3B6D11", text: "#27500A", badge: "#3B6D11" },
+};
+
+const DEMO_REQUESTS = [
+  { id: "PRJ-001", name: "Alice Johnson", email: "alice@example.com", type: "Web Application", budget: "$500–$2000", desc: "Need a booking system for my salon.", status: "accepted", date: "2025-01-10" },
+  { id: "PRJ-002", name: "Mohamed Salim", email: "m.salim@mail.com", type: "Script / Automation", budget: "$100–$500", desc: "Automate daily CSV report sending.", status: "pending", date: "2025-01-14" },
+  { id: "PRJ-003", name: "Nassim", email: "nassim@startup.io", type: "Website", budget: "$100–$500", desc: "Portfolio site for my design studio.", status: "reviewed", date: "2025-01-15" },
+];
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
 
 export default function App() {
   const [lang, setLang] = useState("en");
   const [section, setSection] = useState("home");
   const [, setMenuOpen] = useState(false);
+<<<<<<< HEAD
   const [requests, setRequests] = useState([]);
   const [adminLoggedIn, setAdminLoggedIn] = useState(false);
   const [toasts, setToasts] = useState([]);
@@ -423,12 +532,25 @@ export default function App() {
   const [formSent, setFormSent] = useState(false);
   const [ratingSent, setRatingSent] = useState(false);
   const [submittedTestimonials, setSubmittedTestimonials] = useState([]);
+=======
+  const [requests, setRequests] = useState(DEMO_REQUESTS);
+  const [adminLoggedIn, setAdminLoggedIn] = useState(false);
+  const [adminCreds, setAdminCreds] = useState({ user: "", pass: "" });
+  const [loginError, setLoginError] = useState(false);
+  const [portfolioFilter, setPortfolioFilter] = useState(0);
+  const [openFaq, setOpenFaq] = useState(null);
+  const [form, setForm] = useState({ name: "", email: "", type: "", budget: "", desc: "" });
+  const [formSent, setFormSent] = useState(false);
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
   const [statusId, setStatusId] = useState("");
   const [statusResult, setStatusResult] = useState(null);
   const [statusChecked, setStatusChecked] = useState(false);
   const t = TRANSLATIONS[lang];
   const isRTL = lang === "ar";
+<<<<<<< HEAD
   const showPrices = false; // toggle to show/hide service prices
+=======
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
 
   const scrollTo = (id) => {
     setSection(id);
@@ -439,7 +561,11 @@ export default function App() {
     }, 50);
   };
 
+<<<<<<< HEAD
   const submitForm = async () => {
+=======
+  const submitForm = () => {
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
     if (!form.name || !form.email || !form.type) return;
     const newReq = {
       id: `PRJ-${String(requests.length + 1).padStart(3, "0")}`,
@@ -447,6 +573,7 @@ export default function App() {
       status: "pending",
       date: new Date().toISOString().slice(0, 10),
     };
+<<<<<<< HEAD
 
     setRequests(prev => [...prev, newReq]);
     setFormSent(true);
@@ -658,12 +785,21 @@ useEffect(() => {
   };
 }, [adminLoggedIn]);
 
+=======
+    setRequests([...requests, newReq]);
+    setFormSent(true);
+    setForm({ name: "", email: "", type: "", budget: "", desc: "" });
+    setTimeout(() => setFormSent(false), 5000);
+  };
+
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
   const checkStatus = () => {
     const found = requests.find(r => r.id.toLowerCase() === statusId.toLowerCase());
     setStatusResult(found || null);
     setStatusChecked(true);
   };
 
+<<<<<<< HEAD
   const updateStatus = async (id, newStatus) => {
     setRequests(requests.map(r => r.id === id ? { ...r, status: newStatus } : r));
     if (isApiEnabled) {
@@ -680,6 +816,10 @@ useEffect(() => {
     if (!isSupabaseEnabled) return;
     const { error } = await supabase.from("requests").update({ status: newStatus }).eq("id", id);
     if (error) setBackendError(`Failed to update status: ${error.message}`);
+=======
+  const updateStatus = (id, newStatus) => {
+    setRequests(requests.map(r => r.id === id ? { ...r, status: newStatus } : r));
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
   };
 
   const handleAdminLogin = () => {
@@ -689,6 +829,7 @@ useEffect(() => {
     } else setLoginError(true);
   };
 
+<<<<<<< HEAD
   const navItems = ["home", "rating", "about", "services", "portfolio", "contact"];
 
   const styles = {
@@ -718,6 +859,37 @@ useEffect(() => {
 
   const statusColor = { pending: "#d8c8ff", reviewed: "#c3b0ff", accepted: "#9d86ff", declined: "#f5b4ff" };
   const statusBg = { pending: "rgba(167,137,255,0.16)", reviewed: "rgba(159,131,255,0.16)", accepted: "rgba(157,134,255,0.16)", declined: "rgba(249,184,255,0.18)" };
+=======
+  const navItems = ["home", "about", "services", "portfolio", "contact"];
+
+  const styles = {
+    page: { fontFamily: "'Inter', 'Segoe UI', sans-serif", background: "#303050", color: "#40408a", minHeight: "100vh", direction: isRTL ? "rtl" : "ltr" },
+    nav: { position: "sticky", top: 0, zIndex: 100, background: "rgba(10,10,15,0.92)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 },
+    logo: { fontWeight: 700, fontSize: 20, color: "#fff", letterSpacing: "-0.5px" },
+    logoAccent: { color: "#7f6af8" },
+    navLinks: { display: "flex", gap: 4, alignItems: "center" },
+    navLink: (active) => ({ background: active ? "rgba(127,106,248,0.15)" : "transparent", color: active ? "#9d8ef9" : "#aaa", border: "none", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 14, fontWeight: active ? 500 : 400, transition: "all 0.15s" }),
+    langBtn: (active) => ({ background: active ? "#7f6af8" : "rgba(255,255,255,0.06)", color: active ? "#141414" : "#aaa", border: "none", padding: "4px 10px", borderRadius: 6, cursor: "pointer", fontSize: 13, fontWeight: 500 }),
+    section: { padding: "80px 24px", maxWidth: 1000, margin: "0 auto" },
+    sectionAlt: { background: "rgba(255,255,255,0.015)" },
+    badge: { display: "inline-block", background: "rgba(127,106,248,0.12)", color: "#9d8ef9", borderRadius: 20, padding: "4px 14px", fontSize: 13, fontWeight: 500, marginBottom: 16, border: "1px solid rgba(127,106,248,0.2)" },
+    h2: { fontSize: 36, fontWeight: 700, color: "#fff", margin: "0 0 8px", letterSpacing: "-0.5px" },
+    sub: { color: "#888", fontSize: 16, marginBottom: 48 },
+    primaryBtn: { background: "#7f6af8", color: "#fff", border: "none", padding: "12px 28px", borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all 0.15s" },
+    ghostBtn: { background: "transparent", color: "#ccc", border: "1px solid rgba(255,255,255,0.15)", padding: "12px 28px", borderRadius: 10, fontSize: 15, fontWeight: 500, cursor: "pointer", transition: "all 0.15s" },
+    card: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 14, padding: "24px", transition: "all 0.2s" },
+    input: { width: "100%", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, padding: "10px 14px", color: "#1c1c1d", fontSize: 14, outline: "none", boxSizing: "border-box" },
+    label: { display: "block", color: "#aaa", fontSize: 13, marginBottom: 6, fontWeight: 500 },
+    grid2: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 },
+    grid3: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20 },
+    whatsapp: { position: "fixed", bottom: 90, right: 24, background: "#25D366", color: "#fff", border: "none", borderRadius: "50%", width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 200, boxShadow: "0 4px 20px rgba(37,211,102,0.3)", fontSize: 24 },
+    emailFloat: { position: "fixed", bottom: 24, right: 24, background: "#EA4335", color: "#fff", border: "none", borderRadius: "50%", width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 200, boxShadow: "0 4px 20px rgba(234,67,53,0.3)", fontSize: 24 },
+    
+  };
+
+  const statusColor = { pending: "#f59e0b", reviewed: "#3b82f6", accepted: "#22c55e", declined: "#ef4444" };
+  const statusBg = { pending: "rgba(245,158,11,0.1)", reviewed: "rgba(59,130,246,0.1)", accepted: "rgba(34,197,94,0.1)", declined: "rgba(239,68,68,0.1)" };
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
 
   const filteredPortfolio = portfolioFilter === 0
     ? t.portfolio.items
@@ -726,6 +898,7 @@ useEffect(() => {
         const itemCat = TRANSLATIONS.en.portfolio.items[i].cat.toLowerCase();
         return itemCat === filterKey;
       });
+<<<<<<< HEAD
   const activeNavIndex = navItems.includes(section) ? navItems.indexOf(section) : 0;
   const activeNavOpacity = navItems.includes(section) ? 1 : 0;
 
@@ -743,10 +916,16 @@ useEffect(() => {
         ))}
       </div>
 
+=======
+
+  return (
+    <div style={styles.page}>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       {/* NAV */}
       <nav style={styles.nav}>
         <div style={styles.logo}>&lt;<span style={styles.logoAccent}>NADJIB</span>/&gt;</div>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+<<<<<<< HEAD
           <div
             className="gooey-nav"
             style={{
@@ -766,6 +945,14 @@ useEffect(() => {
             ))}
           </div>
           <div style={styles.navLinks}>
+=======
+          <div style={styles.navLinks}>
+            {navItems.map(id => (
+              <button key={id} style={styles.navLink(section === id)} onClick={() => scrollTo(id)}>
+                {t.nav[id]}
+              </button>
+            ))}
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
             <button style={styles.navLink(section === "status")} onClick={() => { setSection("status"); scrollTo("status"); }}>
               <i className="ti ti-radar" aria-hidden />
             </button>
@@ -782,6 +969,7 @@ useEffect(() => {
       </nav>
 
       {/* HERO */}
+<<<<<<< HEAD
       <section id="home" className="hero-stage" style={{ minHeight: "92vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 24px", position: "relative", overflow: "hidden", background: "linear-gradient(180deg, rgba(5,7,17,0.38) 0%, rgba(8,10,24,0.74) 100%)" }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.035), transparent 34%, rgba(0,0,0,0.24))", pointerEvents: "none" }} />
         <div className="hero-shape hero-shape-large" style={{ top: "8%", left: "-8%" }} />
@@ -839,11 +1027,31 @@ useEffect(() => {
               >
                 {tech}
               </span>
+=======
+      <section id="home" style={{ minHeight: "92vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 50% 20%, rgba(127,106,248,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", maxWidth: 720 }}>
+          <p style={{ color: "#888", fontSize: 16, marginBottom: 8, letterSpacing: 2, textTransform: "uppercase", fontWeight: 500 }}>{t.hero.greeting}</p>
+          <h1 style={{ fontSize: "clamp(56px, 10vw, 96px)", fontWeight: 800, color: "#fff", margin: "0 0 8px", letterSpacing: "-2px", lineHeight: 1 }}>
+            {t.hero.name}
+          </h1>
+          <div style={{ height: 3, width: 80, background: "linear-gradient(90deg, #7f6af8, #a78bfa)", borderRadius: 2, margin: "16px auto" }} />
+          <h2 style={{ fontSize: "clamp(18px, 3vw, 26px)", fontWeight: 500, color: "#ccc", margin: "0 0 20px" }}>{t.hero.title}</h2>
+          <p style={{ fontSize: 17, color: "#777", lineHeight: 1.7, marginBottom: 40, maxWidth: 560, margin: "0 auto 40px" }}>{t.hero.subtitle}</p>
+          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+            <button style={styles.primaryBtn} onClick={() => scrollTo("contact")}>{t.hero.cta}</button>
+            <button style={styles.ghostBtn} onClick={() => scrollTo("portfolio")}>{t.hero.ctaSecondary}</button>
+          </div>
+          <div style={{ display: "flex", gap: 20, justifyContent: "center", marginTop: 60, flexWrap: "wrap" }}>
+            {["React", "Node.js", "Python", "PostgreSQL", "TypeScript"].map(tech => (
+              <span key={tech} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: "4px 14px", fontSize: 13, color: "#888" }}>{tech}</span>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
             ))}
           </div>
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* RATING */}
       <section id="rating" style={{ ...styles.section, ...styles.sectionAlt }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
@@ -887,11 +1095,14 @@ useEffect(() => {
         </div>
       </section>
 
+=======
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
       {/* ABOUT */}
       <section id="about" style={{ ...styles.section, ...styles.sectionAlt }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <div style={styles.badge}>{t.about.title}</div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+<<<<<<< HEAD
             <div className="about-copy">
               <h2 className="section-heading" style={styles.h2}>{t.about.title}</h2>
               <p style={{ color: "#d0c7ff", lineHeight: 1.8, marginBottom: 16 }}>{t.about.p1}</p>
@@ -959,6 +1170,33 @@ useEffect(() => {
             <a href="https://www.google.com/maps/place/Oran,+Algeria" target="_blank" rel="noreferrer" style={{ color: "#cdb9ff", fontSize: 12, textDecoration: "underline", marginTop: 4, zIndex: 1 }}>
               View on Google Maps
             </a>
+=======
+            <div>
+              <h2 style={styles.h2}>{t.about.title}</h2>
+              <p style={{ color: "#aaa", lineHeight: 1.8, marginBottom: 16 }}>{t.about.p1}</p>
+              <p style={{ color: "#aaa", lineHeight: 1.8, marginBottom: 32 }}>{t.about.p2}</p>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <button style={styles.primaryBtn} onClick={() => scrollTo("contact")}>{t.hero.cta}</button>
+                <a href="mailto:nedjaoumnadjib@gmail.com" style={{ ...styles.ghostBtn, textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
+                  <i className="ti ti-mail" aria-hidden /> Email
+                </a>
+              </div>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              {t.about.vals.map((val, i) => (
+                <div key={i} style={{ ...styles.card, textAlign: "center" }}>
+                  <p style={{ fontSize: 40, fontWeight: 800, color: "#7f6af8", margin: "0 0 4px" }}>{val}</p>
+                  <p style={{ fontSize: 13, color: "#888", margin: 0 }}>{t.about.stats[i]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Google Maps location placeholder */}
+          <div style={{ marginTop: 48, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, overflow: "hidden", height: 220, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 8 }}>
+            <i className="ti ti-map-pin" style={{ fontSize: 32, color: "#7f6af8" }} aria-hidden />
+            <p style={{ color: "#666", fontSize: 14, margin: 0 }}>Oran, Algeria · Available worldwide</p>
+            <p style={{ color: "#444", fontSize: 12, margin: 0 }}>— embed Google Maps iframe here with your coordinates —</p>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
           </div>
         </div>
       </section>
@@ -971,6 +1209,7 @@ useEffect(() => {
           <p style={styles.sub}>{t.services.subtitle}</p>
           <div style={styles.grid3}>
             {t.services.items.map((svc, i) => (
+<<<<<<< HEAD
               <ElectricBorder key={i} className="service-border" color="#7f6af8" borderRadius={20} speed={1.1} chaos={0.15}>
                 <div style={{ ...styles.card, cursor: "default", border: "none", background: "rgba(18, 15, 41, 0.9)" }}>
                   <i className={`ti ${svc.icon}`} style={{ fontSize: 28, color: "#b9a9ff", display: "block", marginBottom: 14 }} aria-hidden />
@@ -984,6 +1223,21 @@ useEffect(() => {
                   </div>
                 </div>
               </ElectricBorder>
+=======
+              <div key={i} style={{ ...styles.card, cursor: "default" }}
+                onMouseEnter={e => e.currentTarget.style.border = "1px solid rgba(127,106,248,0.4)"}
+                onMouseLeave={e => e.currentTarget.style.border = "1px solid rgba(255,255,255,0.08)"}>
+                <i className={`ti ${svc.icon}`} style={{ fontSize: 28, color: "#7f6af8", display: "block", marginBottom: 14 }} aria-hidden />
+                <h3 style={{ color: "#fff", fontWeight: 600, fontSize: 16, margin: "0 0 8px" }}>{svc.name}</h3>
+                <p style={{ color: "#888", fontSize: 14, lineHeight: 1.6, margin: "0 0 16px" }}>{svc.desc}</p>
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: 14, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <span style={{ color: "#7f6af8", fontWeight: 600, fontSize: 15 }}>{svc.price}</span>
+                  <button style={{ background: "transparent", border: "1px solid rgba(127,106,248,0.3)", color: "#9d8ef9", borderRadius: 7, padding: "5px 12px", fontSize: 13, cursor: "pointer" }} onClick={() => scrollTo("contact")}>
+                    {lang === "ar" ? "طلب" : lang === "fr" ? "Commander" : "Order"}
+                  </button>
+                </div>
+              </div>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
             ))}
           </div>
         </div>
@@ -997,12 +1251,17 @@ useEffect(() => {
           <p style={styles.sub}>{t.portfolio.subtitle}</p>
           <div style={{ display: "flex", gap: 8, marginBottom: 32, flexWrap: "wrap" }}>
             {t.portfolio.filters.map((f, i) => (
+<<<<<<< HEAD
               <button key={i} style={{ background: portfolioFilter === i ? "#7f6af8" : "rgba(127,106,248,0.12)", color: portfolioFilter === i ? "#fff" : "#d8d0ff", border: "1px solid " + (portfolioFilter === i ? "#7f6af8" : "rgba(127,106,248,0.26)"), borderRadius: 8, padding: "6px 16px", cursor: "pointer", fontSize: 14 }}
+=======
+              <button key={i} style={{ background: portfolioFilter === i ? "#7f6af8" : "rgba(255,255,255,0.05)", color: portfolioFilter === i ? "#fff" : "#888", border: "1px solid " + (portfolioFilter === i ? "#7f6af8" : "rgba(255,255,255,0.1)"), borderRadius: 8, padding: "6px 16px", cursor: "pointer", fontSize: 14 }}
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                 onClick={() => setPortfolioFilter(i)}>{f}</button>
             ))}
           </div>
           <div style={styles.grid3}>
             {filteredPortfolio.map((p, i) => {
+<<<<<<< HEAD
               const c = colorMap[p.color] || colorMap.purple;
               return (
                 <div key={i} style={{ background: "rgba(127,106,248,0.12)", border: "1px solid rgba(127,106,248,0.24)", borderRadius: 14, overflow: "hidden" }}>
@@ -1012,33 +1271,51 @@ useEffect(() => {
                     <div className="portfolio-card-spark" style={{ bottom: 18, left: 36, background: "rgba(167,137,255,0.14)", width: 18, height: 18, animationDuration: "9s" }} />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.08), transparent 72%)" }} />
                     <div style={{ position: "absolute", width: "78%", height: "62%", top: "18%", left: "11%", borderRadius: 20, background: "rgba(127,106,248,0.08)", border: "1px solid rgba(127,106,248,0.14)", boxShadow: "inset 0 0 0 1px rgba(127,106,248,0.06)" }} />
+=======
+              const c = colorMap[TRANSLATIONS.en.portfolio.items[i]?.color || p.color] || colorMap.purple;
+              return (
+                <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, overflow: "hidden" }}>
+                  <div style={{ background: c.bg, height: 120, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <i className="ti ti-code" style={{ fontSize: 40, color: c.badge, opacity: 0.5 }} aria-hidden />
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                   </div>
                   <div style={{ padding: 20 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                       <h3 style={{ color: "#fff", fontWeight: 600, fontSize: 15, margin: 0 }}>{p.title}</h3>
                       <span style={{ background: c.bg, color: c.text, fontSize: 11, padding: "2px 8px", borderRadius: 20, fontWeight: 500 }}>{p.cat}</span>
                     </div>
+<<<<<<< HEAD
                     <p style={{ color: "#d0c7ff", fontSize: 13, lineHeight: 1.6, marginBottom: 12 }}>{p.desc}</p>
                     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                       {p.tech.map(t2 => (
                         <span key={t2} style={{ background: "rgba(127,106,248,0.16)", color: "#d8d0ff", fontSize: 11, padding: "2px 8px", borderRadius: 6 }}>{t2}</span>
+=======
+                    <p style={{ color: "#888", fontSize: 13, lineHeight: 1.6, marginBottom: 12 }}>{p.desc}</p>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                      {p.tech.map(t2 => (
+                        <span key={t2} style={{ background: "rgba(255,255,255,0.05)", color: "#aaa", fontSize: 11, padding: "2px 8px", borderRadius: 6 }}>{t2}</span>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                       ))}
                     </div>
                   </div>
                 </div>
               );
             })}
+<<<<<<< HEAD
             {filteredPortfolio.length === 0 && (
               <div style={{ ...styles.card, gridColumn: "1 / -1", textAlign: "center", padding: 36, background: "rgba(127,106,248,0.14)", border: "1px solid rgba(127,106,248,0.22)" }}>
                 <p style={{ color: "#d0c7ff", fontSize: 15, marginBottom: 8 }}>No projects match this filter yet.</p>
                 <p style={{ color: "#b8b2e4", fontSize: 13, margin: 0 }}>Try a different category or check back soon for new case studies.</p>
               </div>
             )}
+=======
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
           </div>
         </div>
       </section>
 
       {/* TESTIMONIALS */}
+<<<<<<< HEAD
       <section style={{ ...styles.section, position: "relative", overflow: "hidden" }}>
         <GhostCursor style={{ position: "absolute", inset: 0, zIndex: 0, opacity: 0.24, mixBlendMode: "screen" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1000, margin: "0 auto" }}>
@@ -1066,6 +1343,29 @@ useEffect(() => {
                   </div>
                 </div>
               </ElectricBorder>
+=======
+      <section style={styles.section}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <div style={styles.badge}>{t.testimonials.title}</div>
+          <h2 style={styles.h2}>{t.testimonials.title}</h2>
+          <div style={styles.grid2}>
+            {t.testimonials.items.map((tm, i) => (
+              <div key={i} style={styles.card}>
+                <div style={{ display: "flex", marginBottom: 12 }}>
+                  {[...Array(tm.rating)].map((_, j) => <i key={j} className="ti ti-star-filled" style={{ color: "#f59e0b", fontSize: 14 }} aria-hidden />)}
+                </div>
+                <p style={{ color: "#ccc", fontSize: 14, lineHeight: 1.7, marginBottom: 16, fontStyle: "italic" }}>"{tm.text}"</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <div style={{ width: 36, height: 36, background: "rgba(127,106,248,0.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#9d8ef9", fontWeight: 700, fontSize: 13 }}>
+                    {tm.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p style={{ color: "#fff", fontWeight: 500, fontSize: 14, margin: 0 }}>{tm.name}</p>
+                    <p style={{ color: "#666", fontSize: 12, margin: 0 }}>{tm.role}</p>
+                  </div>
+                </div>
+              </div>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
             ))}
           </div>
         </div>
@@ -1082,10 +1382,17 @@ useEffect(() => {
             {t.faq.items.map((item, i) => (
               <div key={i} style={{ ...styles.card, cursor: "pointer" }} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+<<<<<<< HEAD
                   <p style={{ color: "#f0ebff", fontWeight: 500, fontSize: 15, margin: 0, flex: 1 }}>{item.q}</p>
                   <i className={`ti ${openFaq === i ? "ti-chevron-up" : "ti-chevron-down"}`} style={{ color: "#7f6af8", fontSize: 18, marginLeft: 12 }} aria-hidden />
                 </div>
                 {openFaq === i && <p style={{ color: "#d0c7ff", fontSize: 14, lineHeight: 1.7, marginTop: 12, marginBottom: 0 }}>{item.a}</p>}
+=======
+                  <p style={{ color: "#e8e8f0", fontWeight: 500, fontSize: 15, margin: 0, flex: 1 }}>{item.q}</p>
+                  <i className={`ti ${openFaq === i ? "ti-chevron-up" : "ti-chevron-down"}`} style={{ color: "#7f6af8", fontSize: 18, marginLeft: 12 }} aria-hidden />
+                </div>
+                {openFaq === i && <p style={{ color: "#888", fontSize: 14, lineHeight: 1.7, marginTop: 12, marginBottom: 0 }}>{item.a}</p>}
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
               </div>
             ))}
           </div>
@@ -1101,9 +1408,15 @@ useEffect(() => {
             <p style={styles.sub}>{t.contact.subtitle}</p>
           </div>
           {formSent ? (
+<<<<<<< HEAD
             <div style={{ background: "rgba(127,106,248,0.16)", border: "1px solid rgba(127,106,248,0.32)", borderRadius: 14, padding: 32, textAlign: "center" }}>
               <i className="ti ti-circle-check" style={{ fontSize: 48, color: "#b9a9ff", display: "block", marginBottom: 12 }} aria-hidden />
               <p style={{ color: "#b9a9ff", fontSize: 16, fontWeight: 500, margin: 0 }}>{t.contact.success}</p>
+=======
+            <div style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 14, padding: 32, textAlign: "center" }}>
+              <i className="ti ti-circle-check" style={{ fontSize: 48, color: "#22c55e", display: "block", marginBottom: 12 }} aria-hidden />
+              <p style={{ color: "#22c55e", fontSize: 16, fontWeight: 500, margin: 0 }}>{t.contact.success}</p>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
             </div>
           ) : (
             <div style={styles.card}>
@@ -1121,20 +1434,33 @@ useEffect(() => {
               <div style={styles.grid2}>
                 <div>
                   <label style={styles.label}>{t.contact.fields.type} *</label>
+<<<<<<< HEAD
                   <select style={{ ...styles.input, cursor: "pointer", color: "#f8f4ff", background: "rgba(127,106,248,0.16)" }} value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}>
                     <option value="" style={{ color: "#8887b7", background: "rgba(18, 15, 41, 1)" }}>—</option>
                     {t.contact.types.map(tp => <option key={tp} value={tp} style={{ color: "#f8f4ff", background: "rgba(18, 15, 41, 1)" }}>{tp}</option>)}
+=======
+                  <select style={{ ...styles.input, cursor: "pointer" }} value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}>
+                    <option value="">—</option>
+                    {t.contact.types.map(tp => <option key={tp} value={tp}>{tp}</option>)}
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                   </select>
                 </div>
                 <div>
                   <label style={styles.label}>{t.contact.fields.budget}</label>
+<<<<<<< HEAD
                   <select style={{ ...styles.input, cursor: "pointer", color: "#f8f4ff", background: "rgba(127,106,248,0.16)" }} value={form.budget} onChange={e => setForm({ ...form, budget: e.target.value })}>
                     <option value="" style={{ color: "#8887b7", background: "rgba(18, 15, 41, 1)" }}>—</option>
                     {t.contact.budgets.map(b => <option key={b} value={b} style={{ color: "#f8f4ff", background: "rgba(18, 15, 41, 1)" }}>{b}</option>)}
+=======
+                  <select style={{ ...styles.input, cursor: "pointer" }} value={form.budget} onChange={e => setForm({ ...form, budget: e.target.value })}>
+                    <option value="">—</option>
+                    {t.contact.budgets.map(b => <option key={b} value={b}>{b}</option>)}
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                   </select>
                 </div>
               </div>
               <div style={{ height: 16 }} />
+<<<<<<< HEAD
               <div style={styles.grid2}>
                 <div>
                   <label style={styles.label}>{t.contact.fields.rating}</label>
@@ -1149,6 +1475,8 @@ useEffect(() => {
                 </div>
               </div>
               <div style={{ height: 16 }} />
+=======
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
               <div>
                 <label style={styles.label}>{t.contact.fields.desc}</label>
                 <textarea style={{ ...styles.input, minHeight: 120, resize: "vertical" }} value={form.desc} onChange={e => setForm({ ...form, desc: e.target.value })} placeholder="Describe your project..." />
@@ -1184,13 +1512,22 @@ useEffect(() => {
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {[["Name", statusResult.name], ["Type", statusResult.type], ["Budget", statusResult.budget], ["Date", statusResult.date]].map(([k, v]) => (
                     <div key={k} style={{ display: "flex", justifyContent: "space-between" }}>
+<<<<<<< HEAD
                       <span style={{ color: "#d8d0ff", fontSize: 14 }}>{k}</span>
                       <span style={{ color: "#b8b2e4", fontSize: 14 }}>{v}</span>
+=======
+                      <span style={{ color: "#666", fontSize: 14 }}>{k}</span>
+                      <span style={{ color: "#ccc", fontSize: 14 }}>{v}</span>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                     </div>
                   ))}
                 </div>
               </div>
+<<<<<<< HEAD
             ) : <p style={{ color: "#f8b4ff", fontSize: 14 }}>{t.status.notFound}</p>
+=======
+            ) : <p style={{ color: "#ef4444", fontSize: 14 }}>{t.status.notFound}</p>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
           )}
         </div>
       </section>
@@ -1210,21 +1547,34 @@ useEffect(() => {
                 <input style={{ ...styles.input, marginBottom: 12 }} value={adminCreds.user} onChange={e => setAdminCreds({ ...adminCreds, user: e.target.value })} placeholder="nadjib" />
                 <label style={styles.label}>{t.admin.login.pass}</label>
                 <input style={{ ...styles.input, marginBottom: 4 }} type="password" value={adminCreds.pass} onChange={e => setAdminCreds({ ...adminCreds, pass: e.target.value })} placeholder="••••••••" onKeyDown={e => e.key === "Enter" && handleAdminLogin()} />
+<<<<<<< HEAD
                 {loginError && <p style={{ color: "#f8b4ff", fontSize: 13, marginBottom: 12 }}>{t.admin.login.error}</p>}
                 <div style={{ height: 16 }} />
                 <button style={{ ...styles.primaryBtn, width: "100%" }} onClick={handleAdminLogin}>{t.admin.login.btn}</button>
+=======
+                {loginError && <p style={{ color: "#ef4444", fontSize: 13, marginBottom: 12 }}>{t.admin.login.error}</p>}
+                <div style={{ height: 16 }} />
+                <button style={{ ...styles.primaryBtn, width: "100%" }} onClick={handleAdminLogin}>{t.admin.login.btn}</button>
+                <p style={{ color: "#555", fontSize: 12, textAlign: "center", marginTop: 12 }}>Demo: nadjib / admin123</p>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
               </div>
             </div>
           ) : (
             <>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16, marginBottom: 32 }}>
                 {Object.entries({ total: requests.length, pending: requests.filter(r => r.status === "pending").length, accepted: requests.filter(r => r.status === "accepted").length }).map(([k, v]) => (
+<<<<<<< HEAD
                   <div key={k} style={{ background: "rgba(127,106,248,0.16)", border: "1px solid rgba(127,106,248,0.28)", borderRadius: 12, padding: "20px 24px" }}>
                     <p style={{ color: "#d8d0ff", fontSize: 13, margin: "0 0 4px", textTransform: "capitalize" }}>{k === "total" ? "Total Requests" : k === "pending" ? "Pending" : "Accepted"}</p>
+=======
+                  <div key={k} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "20px 24px" }}>
+                    <p style={{ color: "#888", fontSize: 13, margin: "0 0 4px", textTransform: "capitalize" }}>{k === "total" ? "Total Requests" : k === "pending" ? "Pending" : "Accepted"}</p>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                     <p style={{ color: "#fff", fontSize: 32, fontWeight: 700, margin: 0 }}>{v}</p>
                   </div>
                 ))}
               </div>
+<<<<<<< HEAD
               <div style={{ position: "relative", overflow: "hidden", borderRadius: 20, padding: "24px 0 0 0" }}>
                 <GhostCursor style={{ position: "absolute", inset: 0, zIndex: 0, opacity: 0.72, mixBlendMode: "screen" }} />
                 <div style={{ overflowX: "auto", position: "relative", zIndex: 1 }}>
@@ -1270,6 +1620,52 @@ useEffect(() => {
               </div>
               <div style={{ marginTop: 16, textAlign: "right" }}>
                 <button style={{ background: "transparent", color: "#d8d0ff", border: "none", cursor: "pointer", fontSize: 13 }} onClick={() => setAdminLoggedIn(false)}>
+=======
+              <div style={{ overflowX: "auto" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                      {["ID", ...t.admin.cols, "Actions"].map(col => (
+                        <th key={col} style={{ textAlign: isRTL ? "right" : "left", padding: "10px 14px", color: "#666", fontWeight: 500, fontSize: 13 }}>{col}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {requests.length === 0 ? (
+                      <tr><td colSpan={8} style={{ textAlign: "center", padding: 40, color: "#555" }}>{t.admin.empty}</td></tr>
+                    ) : requests.map(r => (
+                      <tr key={r.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+                        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.02)"}
+                        onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+                        <td style={{ padding: "12px 14px", color: "#7f6af8", fontWeight: 500 }}>{r.id}</td>
+                        <td style={{ padding: "12px 14px", color: "#e8e8f0" }}>{r.name}</td>
+                        <td style={{ padding: "12px 14px", color: "#888" }}>{r.email}</td>
+                        <td style={{ padding: "12px 14px", color: "#ccc" }}>{r.type}</td>
+                        <td style={{ padding: "12px 14px", color: "#ccc" }}>{r.budget}</td>
+                        <td style={{ padding: "12px 14px" }}>
+                          <span style={{ background: statusBg[r.status], color: statusColor[r.status], padding: "3px 10px", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>
+                            {t.admin.statuses[r.status]}
+                          </span>
+                        </td>
+                        <td style={{ padding: "12px 14px", color: "#666" }}>{r.date}</td>
+                        <td style={{ padding: "12px 14px" }}>
+                          <div style={{ display: "flex", gap: 6 }}>
+                            {["pending", "reviewed", "accepted", "declined"].map(s => (
+                              <button key={s} onClick={() => updateStatus(r.id, s)}
+                                style={{ background: r.status === s ? statusBg[s] : "transparent", color: r.status === s ? statusColor[s] : "#555", border: `1px solid ${r.status === s ? statusColor[s] + "44" : "rgba(255,255,255,0.1)"}`, borderRadius: 6, padding: "3px 8px", cursor: "pointer", fontSize: 11 }}>
+                                {s.charAt(0).toUpperCase()}
+                              </button>
+                            ))}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div style={{ marginTop: 16, textAlign: "right" }}>
+                <button style={{ background: "transparent", color: "#666", border: "none", cursor: "pointer", fontSize: 13 }} onClick={() => setAdminLoggedIn(false)}>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
                   <i className="ti ti-logout" aria-hidden /> Logout
                 </button>
               </div>
@@ -1279,15 +1675,23 @@ useEffect(() => {
       </section>
 
       {/* FOOTER */}
+<<<<<<< HEAD
       <footer style={{ borderTop: "1px solid rgba(127,106,248,0.24)", padding: "32px 24px", textAlign: "center" }}>
         <p style={{ color: "#cfc6ff", fontSize: 14, margin: 0 }}>
           &lt;<span style={{ color: "#b9a9ff" }}>NADJIB</span>/&gt; · Built with React · {new Date().getFullYear()} ·{" "}
           <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=nedjaoumnadjib@gmail.com&su=Project%20Request&body=Hello%20Nadjib%2C%0A%0AI%20would%20like%20to%20hire%20you%20for%20a%20project.%0A%0A" target="_blank" rel="noreferrer" style={{ color: "#b9a9ff", textDecoration: "none" }}>nedjaoumnadjib@gmail.com</a>
+=======
+      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "32px 24px", textAlign: "center" }}>
+        <p style={{ color: "#555", fontSize: 14, margin: 0 }}>
+          &lt;<span style={{ color: "#7f6af8" }}>NADJIB</span>/&gt; · Built with React · {new Date().getFullYear()} ·{" "}
+          <a href="mailto:nedjaoumnadjib@gmail.com" style={{ color: "#7f6af8", textDecoration: "none" }}>nedjaoumnadjib@gmail.com</a>
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
         </p>
       </footer>
 
       {/* FLOATING BUTTONS */}
       <button style={styles.whatsapp} onClick={() => window.open("https://wa.me/213659673190", "_blank")} title="WhatsApp">
+<<<<<<< HEAD
         <WhatsAppIcon title="WhatsApp" />
       </button>
       <button style={styles.emailFloat} onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=nedjaoumnadjib@gmail.com&su=Project%20Request&body=Hello%20Nadjib%2C%0A%0AI%20would%20like%20to%20hire%20you%20for%20a%20project.%0A%0A", "_blank")} title="Email">
@@ -1296,4 +1700,13 @@ useEffect(() => {
     </div>
   );
   
+=======
+        <i className="ti ti-brand-whatsapp" aria-label="WhatsApp" />
+      </button>
+      <button style={styles.emailFloat} onClick={() => window.open("mailto:nedjaoumnadjib@gmail.com")} title="Email">
+        <i className="ti ti-mail" aria-label="Email" />
+      </button>
+    </div>
+  );
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
 }

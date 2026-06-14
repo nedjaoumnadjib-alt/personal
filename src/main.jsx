@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
+<<<<<<< HEAD
 // Global error handlers to avoid a single runtime error breaking the entire UI in production.
 // These will log errors to the console and keep the app mounted so the admin dashboard can still load data.
 window.addEventListener('error', (ev) => {
@@ -19,6 +20,8 @@ window.addEventListener('unhandledrejection', (ev) => {
   } catch { void 0; }
 });
 
+=======
+>>>>>>> 25d02c8f81b643efa141f93f6bf1a88964e0f823
 const gmailComposeUrl =
   'https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=nedjaoumnadjib@gmail.com'
 
