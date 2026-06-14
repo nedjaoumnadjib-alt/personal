@@ -738,7 +738,9 @@ useEffect(() => {
 
       {/* NAV */}
       <nav style={styles.nav}>
-        <div style={styles.logo}>&lt;<span style={styles.logoAccent}>NADJIB</span>/&gt;</div>
+        <button className="nav-logo-mark" type="button" onClick={() => scrollTo("home")} aria-label="Go to home">
+          <img src={profileLogo} alt="Nadjib Web Solutions" />
+        </button>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div
             className="gooey-nav"
@@ -781,6 +783,12 @@ useEffect(() => {
         <div className="hero-shape hero-shape-medium" style={{ bottom: "8%", right: "-10%" }} />
         <div className="hero-shape hero-shape-small" style={{ top: "24%", right: "18%" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 760 }}>
+          <div className="hero-logo-stage" aria-label="Nadjib Web Solutions logo">
+            <div className="hero-logo-orbit" aria-hidden="true" />
+            <div className="hero-logo-card">
+              <img src={profileLogo} alt="Nadjib Web Solutions" />
+            </div>
+          </div>
           <BlurText
             as="p"
             text={t.hero.greeting}

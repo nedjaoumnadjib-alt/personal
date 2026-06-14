@@ -281,6 +281,62 @@ code {
   outline-offset: 2px;
 }
 
+.nav-logo-mark {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 116px;
+  height: 46px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(5, 7, 17, 0.42);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.nav-logo-mark::before {
+  content: "";
+  position: absolute;
+  inset: 4px 8px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 42%, rgba(35, 240, 230, 0.34), transparent 62%);
+  filter: blur(14px);
+  opacity: 0.64;
+  animation: navLogoPulse 3.8s ease-in-out infinite;
+}
+
+.nav-logo-mark img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(35, 240, 230, 0.34));
+}
+
+.nav-logo-mark:hover {
+  transform: translateY(-1px) rotateX(8deg);
+  filter: brightness(1.12);
+}
+
+.nav-logo-mark:focus-visible {
+  outline: 2px solid rgba(35, 240, 230, 0.82);
+  outline-offset: 3px;
+}
+
+@keyframes navLogoPulse {
+  0%,
+  100% {
+    opacity: 0.44;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.86;
+    transform: scale(1.05);
+  }
+}
+
 .section-pill {
   display: inline-flex;
   align-items: center;
@@ -398,6 +454,146 @@ code {
 
 .hero-stage {
   isolation: isolate;
+}
+
+.hero-logo-stage {
+  position: relative;
+  width: min(360px, 82vw);
+  aspect-ratio: 1.28;
+  margin: 0 auto 22px;
+  perspective: 900px;
+  opacity: 0;
+  transform: translateY(18px) scale(0.94);
+  animation: heroLogoEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.04s forwards;
+}
+
+.hero-logo-stage::before,
+.hero-logo-stage::after {
+  content: "";
+  position: absolute;
+  inset: 16% 5%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-logo-stage::before {
+  background:
+    radial-gradient(circle at 42% 28%, rgba(35, 240, 230, 0.28), transparent 36%),
+    radial-gradient(circle at 62% 60%, rgba(80, 168, 255, 0.18), transparent 42%);
+  filter: blur(28px);
+  opacity: 0.78;
+  animation: heroLogoAura 5.5s ease-in-out infinite alternate;
+}
+
+.hero-logo-stage::after {
+  inset: 18% 10%;
+  border: 1px solid rgba(35, 240, 230, 0.22);
+  transform: rotateX(64deg) rotateZ(-10deg);
+  box-shadow: 0 0 34px rgba(35, 240, 230, 0.2);
+  animation: heroLogoRing 7s linear infinite;
+}
+
+.hero-logo-orbit {
+  position: absolute;
+  inset: 12% 2%;
+  border-radius: 50%;
+  border: 1px solid rgba(80, 168, 255, 0.26);
+  transform: rotateX(68deg) rotateZ(17deg);
+  opacity: 0.7;
+  box-shadow:
+    inset 0 0 18px rgba(35, 240, 230, 0.12),
+    0 0 28px rgba(80, 168, 255, 0.18);
+  animation: heroLogoOrbit 8.5s linear infinite;
+}
+
+.hero-logo-card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(4, 9, 17, 0.72), rgba(8, 12, 28, 0.36)),
+    radial-gradient(circle at 50% 18%, rgba(35, 240, 230, 0.12), transparent 42%);
+  border: 1px solid rgba(35, 240, 230, 0.16);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.42),
+    0 0 54px rgba(35, 240, 230, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: rotateX(7deg) rotateY(-9deg) translateZ(0);
+  transform-style: preserve-3d;
+  animation: heroLogoFloat 5.8s ease-in-out infinite;
+}
+
+.hero-logo-card::before {
+  content: "";
+  position: absolute;
+  inset: -35% -18%;
+  background: linear-gradient(105deg, transparent 34%, rgba(255, 255, 255, 0.3) 48%, transparent 62%);
+  transform: translateX(-64%) rotate(8deg);
+  animation: heroLogoShine 4.8s ease-in-out infinite;
+}
+
+.hero-logo-card img {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  transform: translateZ(44px) scale(0.98);
+  filter:
+    drop-shadow(0 0 16px rgba(35, 240, 230, 0.32))
+    drop-shadow(0 18px 28px rgba(0, 0, 0, 0.42));
+}
+
+@keyframes heroLogoEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroLogoFloat {
+  0%,
+  100% {
+    transform: rotateX(7deg) rotateY(-9deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(11deg) rotateY(8deg) translateY(-10px);
+  }
+}
+
+@keyframes heroLogoAura {
+  from {
+    transform: scale(0.94) translateY(6px);
+    opacity: 0.58;
+  }
+  to {
+    transform: scale(1.08) translateY(-4px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes heroLogoRing {
+  to {
+    transform: rotateX(64deg) rotateZ(350deg);
+  }
+}
+
+@keyframes heroLogoOrbit {
+  to {
+    transform: rotateX(68deg) rotateZ(377deg);
+  }
+}
+
+@keyframes heroLogoShine {
+  0%,
+  42% {
+    transform: translateX(-64%) rotate(8deg);
+  }
+  72%,
+  100% {
+    transform: translateX(64%) rotate(8deg);
+  }
 }
 
 .hero-stage::before {
@@ -907,7 +1103,14 @@ code {
   body::before,
   .hero-stage::before,
   .hero-shape,
-  .blur-text-word {
+  .blur-text-word,
+  .nav-logo-mark::before,
+  .hero-logo-stage,
+  .hero-logo-stage::before,
+  .hero-logo-stage::after,
+  .hero-logo-orbit,
+  .hero-logo-card,
+  .hero-logo-card::before {
     opacity: 1;
     filter: none;
     transform: none;
@@ -929,6 +1132,16 @@ code {
 }
 
 @media (max-width: 900px) {
+  .nav-logo-mark {
+    width: 88px;
+    height: 40px;
+  }
+
+  .hero-logo-stage {
+    width: min(300px, 78vw);
+    margin-bottom: 18px;
+  }
+
   .about-profile-column {
     margin-top: 12px;
   }
@@ -943,6 +1156,20 @@ code {
 }
 
 @media (max-width: 520px) {
+  .nav-logo-mark {
+    width: 66px;
+    height: 34px;
+  }
+
+  .hero-logo-stage {
+    width: min(250px, 74vw);
+    margin-bottom: 14px;
+  }
+
+  .hero-logo-card {
+    border-radius: 20px;
+  }
+
   .pc-card-wrapper {
     width: min(100%, 300px);
   }
