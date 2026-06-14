@@ -147,15 +147,15 @@ const TRANSLATIONS = {
       vals: ["50+", "30+", "5+", "20+"],
     },
     services: {
-      title: "Services & Pricing",
-      subtitle: "Transparent pricing, professional results.",
+      title: "Services",
+      subtitle: "Professional digital solutions tailored to your needs.",
       items: [
-        { icon: "ti-world-www", name: "Custom Website", desc: "Responsive, SEO-optimized websites tailored to your brand identity.", price: "From 2000 DZD" },
-        { icon: "ti-apps", name: "Web Application", desc: "Full-stack web apps with authentication, dashboards, and APIs.", price: "From 5000 DZD" },
-        { icon: "ti-device-desktop", name: "Desktop Application", desc: "Cross-platform desktop apps with modern UI and system integrations.", price: "From 4000 DZD" },
-        { icon: "ti-terminal-2", name: "Scripts & Automation", desc: "Custom scripts to automate repetitive tasks and workflows.", price: "From 800 DZD" },
-        { icon: "ti-bug", name: "Bug Fixing & Support", desc: "Diagnose and fix issues in existing codebases, fast turnaround.", price: "From 500 DZD" },
-        { icon: "ti-headset", name: "Ongoing Maintenance", desc: "Monthly support plans to keep your software running smoothly.", price: "From 1000 DZD/mo" },
+        { icon: "ti-world-www", name: "Custom Website", desc: "Responsive, SEO-optimized websites tailored to your brand identity." },
+        { icon: "ti-apps", name: "Web Application", desc: "Full-stack web apps with authentication, dashboards, and APIs." },
+        { icon: "ti-device-desktop", name: "Desktop Application", desc: "Cross-platform desktop apps with modern UI and system integrations." },
+        { icon: "ti-terminal-2", name: "Scripts & Automation", desc: "Custom scripts to automate repetitive tasks and workflows." },
+        { icon: "ti-bug", name: "Bug Fixing & Support", desc: "Diagnose and fix issues in existing codebases, fast turnaround." },
+        { icon: "ti-headset", name: "Ongoing Maintenance", desc: "Monthly support plans to keep your software running smoothly." },
       ],
     },
     portfolio: {
@@ -227,15 +227,15 @@ const TRANSLATIONS = {
       vals: ["50+", "30+", "5+", "20+"],
     },
     services: {
-      title: "Services & Tarifs",
-      subtitle: "Tarification transparente, résultats professionnels.",
+      title: "Services",
+      subtitle: "Solutions numériques professionnelles adaptées à vos besoins.",
       items: [
-        { icon: "ti-world-www", name: "Site web personnalisé", desc: "Sites responsive et optimisés SEO adaptés à votre marque.", price: "À partir de 2000 DZD" },
-        { icon: "ti-apps", name: "Application web", desc: "Applications full-stack avec authentification, tableaux de bord et APIs.", price: "À partir de 5000 DZD" },
-        { icon: "ti-device-desktop", name: "Application desktop", desc: "Applications desktop multiplateformes avec interface moderne.", price: "À partir de 4000 DZD" },
-        { icon: "ti-terminal-2", name: "Scripts & Automatisation", desc: "Scripts personnalisés pour automatiser les tâches répétitives.", price: "À partir de 800 DZD" },
-        { icon: "ti-bug", name: "Correction de bugs", desc: "Diagnostic et correction rapide des problèmes dans votre code.", price: "À partir de 500 DZD" },
-        { icon: "ti-headset", name: "Maintenance continue", desc: "Plans de support mensuel pour garder votre logiciel opérationnel.", price: "À partir de 1000 DZD/mois" },
+        { icon: "ti-world-www", name: "Site web personnalisé", desc: "Sites responsive et optimisés SEO adaptés à votre marque." },
+        { icon: "ti-apps", name: "Application web", desc: "Applications full-stack avec authentification, tableaux de bord et APIs." },
+        { icon: "ti-device-desktop", name: "Application desktop", desc: "Applications desktop multiplateformes avec interface moderne." },
+        { icon: "ti-terminal-2", name: "Scripts & Automatisation", desc: "Scripts personnalisés pour automatiser les tâches répétitives." },
+        { icon: "ti-bug", name: "Correction de bugs", desc: "Diagnostic et correction rapide des problèmes dans votre code." },
+        { icon: "ti-headset", name: "Maintenance continue", desc: "Plans de support mensuel pour garder votre logiciel opérationnel." },
       ],
     },
     portfolio: {
@@ -308,15 +308,15 @@ const TRANSLATIONS = {
       vals: ["50+", "30+", "5+", "20+"],
     },
     services: {
-      title: "الخدمات والأسعار",
-      subtitle: "أسعار شفافة، نتائج احترافية.",
+      title: "الخدمات",
+      subtitle: "حلول رقمية احترافية مصممة حسب احتياجاتك.",
       items: [
-        { icon: "ti-world-www", name: "موقع إلكتروني مخصص", desc: "مواقع متجاوبة ومحسّنة لمحركات البحث تعكس هوية علامتك التجارية.", price: "يبدأ من 2000 DZD" },
-        { icon: "ti-apps", name: "تطبيق ويب", desc: "تطبيقات متكاملة مع مصادقة ولوحات تحكم وواجهات برمجية.", price: "يبدأ من 5000 DZD" },
-        { icon: "ti-device-desktop", name: "تطبيق سطح المكتب", desc: "تطبيقات متعددة المنصات بواجهة حديثة وتكاملات النظام.", price: "يبدأ من 4000 DZD" },
-        { icon: "ti-terminal-2", name: "سكريبتات وأتمتة", desc: "سكريبتات مخصصة لأتمتة المهام المتكررة وتحسين سير العمل.", price: "يبدأ من 800 DZD" },
-        { icon: "ti-bug", name: "إصلاح الأخطاء والدعم", desc: "تشخيص وإصلاح سريع للمشاكل في الأكواد البرمجية الموجودة.", price: "يبدأ من 500 DZD" },
-        { icon: "ti-headset", name: "صيانة مستمرة", desc: "خطط دعم شهرية للحفاظ على تشغيل برمجياتك بسلاسة.", price: "يبدأ من 1000 DZD/شهر" },
+        { icon: "ti-world-www", name: "موقع إلكتروني مخصص", desc: "مواقع متجاوبة ومحسّنة لمحركات البحث تعكس هوية علامتك التجارية." },
+        { icon: "ti-apps", name: "تطبيق ويب", desc: "تطبيقات متكاملة مع مصادقة ولوحات تحكم وواجهات برمجية." },
+        { icon: "ti-device-desktop", name: "تطبيق سطح المكتب", desc: "تطبيقات متعددة المنصات بواجهة حديثة وتكاملات النظام." },
+        { icon: "ti-terminal-2", name: "سكريبتات وأتمتة", desc: "سكريبتات مخصصة لأتمتة المهام المتكررة وتحسين سير العمل." },
+        { icon: "ti-bug", name: "إصلاح الأخطاء والدعم", desc: "تشخيص وإصلاح سريع للمشاكل في الأكواد البرمجية الموجودة." },
+        { icon: "ti-headset", name: "صيانة مستمرة", desc: "خطط دعم شهرية للحفاظ على تشغيل برمجياتك بسلاسة." },
       ],
     },
     portfolio: {
@@ -424,8 +424,6 @@ export default function App() {
   const [statusChecked, setStatusChecked] = useState(false);
   const t = TRANSLATIONS[lang];
   const isRTL = lang === "ar";
-  const showPrices = false; // toggle to show/hide service prices
-
   const submitForm = async () => {
     if (!form.name || !form.email || !form.type) return;
     const newReq = {
@@ -919,8 +917,7 @@ useEffect(() => {
                   <i className={`ti ${svc.icon}`} style={{ fontSize: 28, color: "#b9a9ff", display: "block", marginBottom: 14 }} aria-hidden />
                   <h3 style={{ color: "#fff", fontWeight: 600, fontSize: 16, margin: "0 0 8px" }}>{svc.name}</h3>
                   <p style={{ color: "#d0c7ff", fontSize: 14, lineHeight: 1.6, margin: "0 0 16px" }}>{svc.desc}</p>
-                  <div style={{ borderTop: "1px solid rgba(127,106,248,0.24)", paddingTop: 14, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ color: "#7f6af8", fontWeight: 600, fontSize: 15 }}>{showPrices ? svc.price : null}</span>
+                  <div style={{ borderTop: "1px solid rgba(127,106,248,0.24)", paddingTop: 14, display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
                     <button style={{ background: "transparent", border: "1px solid rgba(127,106,248,0.3)", color: "#9d8ef9", borderRadius: 7, padding: "5px 12px", fontSize: 13, cursor: "pointer" }} onClick={() => scrollTo("contact")}>
                       {lang === "ar" ? "طلب" : lang === "fr" ? "Commander" : "Order"}
                     </button>
