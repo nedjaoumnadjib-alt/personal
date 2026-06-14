@@ -517,12 +517,15 @@ export default function App() {
       try {
         const data = await apiRequest("/requests");
         if (Array.isArray(data)) setRequests(data);
+        setLoadingRequests(false);
+        return;
       } catch (error) {
         setBackendError(`Failed to load requests: ${error.message}`);
-      } finally {
-        setLoadingRequests(false);
+        if (!isSupabaseEnabled) {
+          setLoadingRequests(false);
+          return;
+        }
       }
-      return;
     }
 
     const { data, error } = await supabase.from("requests").select("*").order("date", { ascending: false });
@@ -541,10 +544,11 @@ export default function App() {
       try {
         const data = await apiRequest("/testimonials");
         if (Array.isArray(data)) setSubmittedTestimonials(data);
+        return;
       } catch (error) {
         setBackendError(`Failed to load testimonials: ${error.message}`);
+        if (!isSupabaseEnabled) return;
       }
-      return;
     }
 
     const { data, error } = await supabase
@@ -1142,9 +1146,9 @@ useEffect(() => {
           ) : (
             <>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16, marginBottom: 32 }}>
-                {Object.entries({ total: requests.length, pending: requests.filter(r => r.status === "pending").length, accepted: requests.filter(r => r.status === "accepted").length }).map(([k, v]) => (
+                {Object.entries({ total: requests.length, pending: requests.filter(r => r.status === "pending").length, accepted: requests.filter(r => r.status === "accepted").length, ratings: submittedTestimonials.length }).map(([k, v]) => (
                   <div key={k} style={{ background: "rgba(127,106,248,0.16)", border: "1px solid rgba(127,106,248,0.28)", borderRadius: 12, padding: "20px 24px" }}>
-                    <p style={{ color: "#d8d0ff", fontSize: 13, margin: "0 0 4px", textTransform: "capitalize" }}>{k === "total" ? "Total Requests" : k === "pending" ? "Pending" : "Accepted"}</p>
+                    <p style={{ color: "#d8d0ff", fontSize: 13, margin: "0 0 4px", textTransform: "capitalize" }}>{k === "total" ? "Total Requests" : k === "pending" ? "Pending" : k === "accepted" ? "Accepted" : "Ratings"}</p>
                     <p style={{ color: "#fff", fontSize: 32, fontWeight: 700, margin: 0 }}>{v}</p>
                   </div>
                 ))}
@@ -1186,6 +1190,33 @@ useEffect(() => {
                               ))}
                             </div>
                           </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div style={{ marginTop: 34 }}>
+                <h3 style={{ color: "#fff", fontSize: 22, margin: "0 0 12px" }}>Ratings</h3>
+                <div style={{ overflowX: "auto", borderRadius: 14, border: "1px solid rgba(127,106,248,0.24)" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, background: "rgba(18, 15, 41, 0.88)" }}>
+                    <thead>
+                      <tr style={{ borderBottom: "1px solid rgba(127,106,248,0.24)" }}>
+                        {["Name", "Rating", "Review", "Request ID", "Date"].map(col => (
+                          <th key={col} style={{ textAlign: isRTL ? "right" : "left", padding: "10px 14px", color: "#d8d0ff", fontWeight: 500, fontSize: 13 }}>{col}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {submittedTestimonials.length === 0 ? (
+                        <tr><td colSpan={5} style={{ textAlign: "center", padding: 32, color: "#d8d0ff" }}>No ratings yet.</td></tr>
+                      ) : submittedTestimonials.map((rating, index) => (
+                        <tr key={`${rating.request_id || rating.name}-${rating.created_at || index}`} style={{ borderBottom: "1px solid rgba(127,106,248,0.18)" }}>
+                          <td style={{ padding: "12px 14px", color: "#f8f4ff", fontWeight: 500 }}>{rating.name}</td>
+                          <td style={{ padding: "12px 14px", color: "#fbbf24", whiteSpace: "nowrap" }}>{rating.rating} stars</td>
+                          <td style={{ padding: "12px 14px", color: "#d0c7ff", minWidth: 240 }}>{rating.text}</td>
+                          <td style={{ padding: "12px 14px", color: "#b9a9ff" }}>{rating.request_id || "Rating only"}</td>
+                          <td style={{ padding: "12px 14px", color: "#cfc6ff", whiteSpace: "nowrap" }}>{rating.created_at ? new Date(rating.created_at).toLocaleDateString() : ""}</td>
                         </tr>
                       ))}
                     </tbody>
