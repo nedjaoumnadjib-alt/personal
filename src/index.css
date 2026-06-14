@@ -458,9 +458,9 @@ code {
 
 .hero-logo-stage {
   position: relative;
-  width: min(360px, 82vw);
+  width: min(220px, 62vw);
   aspect-ratio: 1.28;
-  margin: 0 auto 22px;
+  margin: 0 auto 14px;
   perspective: 900px;
   opacity: 0;
   transform: translateY(18px) scale(0.94);
@@ -512,7 +512,7 @@ code {
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 18px;
   background:
     linear-gradient(145deg, rgba(4, 9, 17, 0.72), rgba(8, 12, 28, 0.36)),
     radial-gradient(circle at 50% 18%, rgba(35, 240, 230, 0.12), transparent 42%);
@@ -1138,8 +1138,8 @@ code {
   }
 
   .hero-logo-stage {
-    width: min(300px, 78vw);
-    margin-bottom: 18px;
+    width: min(180px, 58vw);
+    margin-bottom: 12px;
   }
 
   .about-profile-column {
@@ -1162,12 +1162,12 @@ code {
   }
 
   .hero-logo-stage {
-    width: min(250px, 74vw);
-    margin-bottom: 14px;
+    width: min(150px, 52vw);
+    margin-bottom: 10px;
   }
 
   .hero-logo-card {
-    border-radius: 20px;
+    border-radius: 14px;
   }
 
   .pc-card-wrapper {
