@@ -194,7 +194,7 @@ const TRANSLATIONS = {
     contact: {
       title: "Start a Project",
       subtitle: "Tell me about your project and I'll get back to you within 24 hours.",
-      fields: { name: "Full Name", email: "Email Address", type: "Project Type", budget: "Budget", desc: "Project Description", submit: "Send Request" },
+      fields: { name: "Full Name", email: "Email Address", type: "Project Type", budget: "Budget", desc: "Project Description", rating: "Rating", review: "Review", submit: "Send Request" },
       types: ["Website", "Web Application", "Desktop App", "Script / Automation", "Bug Fix / Support", "Other"],
       budgets: ["< 1000 DZD", "1000–5000 DZD", "5000–20000 DZD", "20000–50000 DZD", "50000+ DZD", "Let's discuss"],
       success: "Your request has been sent! I'll reply within 24 hours.",
@@ -887,6 +887,23 @@ useEffect(() => {
               <button style={styles.primaryBtn} onClick={submitRating} disabled={!form.name || !form.rating || !form.review}>
                 Submit Rating
               </button>
+            </div>
+          </div>
+          <div style={{ marginTop: 28 }}>
+            <h3 style={{ color: "#fff", fontSize: 22, margin: "0 0 14px" }}>Recent Ratings</h3>
+            <div style={{ display: "grid", gap: 12 }}>
+              {[...submittedTestimonials, ...t.testimonials.items].slice(0, 6).map((item, index) => (
+                <div key={`${item.name}-${item.created_at || index}`} style={{ background: "rgba(127,106,248,0.12)", border: "1px solid rgba(127,106,248,0.24)", borderRadius: 12, padding: 18 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center", marginBottom: 8 }}>
+                    <div>
+                      <p style={{ color: "#f8f4ff", fontWeight: 600, margin: "0 0 2px" }}>{item.name}</p>
+                      <p style={{ color: "#b8b2e4", fontSize: 12, margin: 0 }}>{item.role || t.contact.reviewRole || "Client"}</p>
+                    </div>
+                    <span style={{ color: "#fbbf24", whiteSpace: "nowrap", fontWeight: 700 }}>{item.rating} stars</span>
+                  </div>
+                  <p style={{ color: "#d0c7ff", fontSize: 14, lineHeight: 1.7, margin: 0 }}>{item.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
