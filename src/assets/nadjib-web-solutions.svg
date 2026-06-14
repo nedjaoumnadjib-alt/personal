@@ -1,0 +1,117 @@
+<svg width="900" height="700" viewBox="0 0 900 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="700" fill="#020203"/>
+  <defs>
+    <radialGradient id="sphereShade" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(430 265) rotate(90) scale(160)">
+      <stop offset="0" stop-color="#112235"/>
+      <stop offset="0.54" stop-color="#05070B"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="245" y1="321" x2="642" y2="205" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#50A8FF"/>
+      <stop offset="0.48" stop-color="#23F0E6"/>
+      <stop offset="1" stop-color="#48B7FF"/>
+    </linearGradient>
+    <linearGradient id="cyanText" x1="194" y1="485" x2="705" y2="485" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16DCD6"/>
+      <stop offset="0.5" stop-color="#20F1EA"/>
+      <stop offset="1" stop-color="#18D4CE"/>
+    </linearGradient>
+    <clipPath id="sphereClip">
+      <circle cx="450" cy="260" r="137"/>
+    </clipPath>
+  </defs>
+
+  <ellipse cx="450" cy="260" rx="138" ry="137" fill="url(#sphereShade)"/>
+  <g clip-path="url(#sphereClip)" opacity="0.95">
+    <g transform="rotate(-22 450 260)">
+      <g fill="#58DFF0">
+        <circle cx="308" cy="158" r="3.5"/>
+        <circle cx="330" cy="151" r="3.3"/>
+        <circle cx="353" cy="146" r="3.2"/>
+        <circle cx="377" cy="142" r="3.1"/>
+        <circle cx="401" cy="140" r="3"/>
+        <circle cx="426" cy="139" r="2.9"/>
+        <circle cx="451" cy="140" r="2.8"/>
+        <circle cx="476" cy="142" r="2.7"/>
+        <circle cx="500" cy="146" r="2.6"/>
+        <circle cx="523" cy="151" r="2.5"/>
+        <circle cx="545" cy="158" r="2.4"/>
+
+        <circle cx="291" cy="184" r="4"/>
+        <circle cx="318" cy="176" r="3.9"/>
+        <circle cx="346" cy="170" r="3.8"/>
+        <circle cx="375" cy="166" r="3.6"/>
+        <circle cx="405" cy="163" r="3.5"/>
+        <circle cx="435" cy="162" r="3.4"/>
+        <circle cx="465" cy="163" r="3.3"/>
+        <circle cx="495" cy="166" r="3.2"/>
+        <circle cx="524" cy="170" r="3"/>
+        <circle cx="552" cy="176" r="2.9"/>
+        <circle cx="579" cy="184" r="2.8"/>
+
+        <circle cx="279" cy="214" r="4.5"/>
+        <circle cx="309" cy="205" r="4.4"/>
+        <circle cx="340" cy="198" r="4.3"/>
+        <circle cx="372" cy="193" r="4.1"/>
+        <circle cx="405" cy="190" r="4"/>
+        <circle cx="438" cy="189" r="3.9"/>
+        <circle cx="471" cy="190" r="3.8"/>
+        <circle cx="504" cy="193" r="3.6"/>
+        <circle cx="536" cy="198" r="3.5"/>
+        <circle cx="567" cy="205" r="3.3"/>
+        <circle cx="597" cy="214" r="3.1"/>
+
+        <circle cx="274" cy="248" r="5"/>
+        <circle cx="306" cy="238" r="4.9"/>
+        <circle cx="340" cy="230" r="4.8"/>
+        <circle cx="374" cy="224" r="4.6"/>
+        <circle cx="410" cy="220" r="4.5"/>
+        <circle cx="446" cy="219" r="4.4"/>
+        <circle cx="482" cy="220" r="4.2"/>
+        <circle cx="518" cy="224" r="4"/>
+        <circle cx="552" cy="230" r="3.8"/>
+        <circle cx="586" cy="238" r="3.6"/>
+        <circle cx="618" cy="248" r="3.4"/>
+
+        <circle cx="277" cy="284" r="5.3"/>
+        <circle cx="310" cy="275" r="5.2"/>
+        <circle cx="345" cy="267" r="5"/>
+        <circle cx="381" cy="261" r="4.8"/>
+        <circle cx="418" cy="257" r="4.7"/>
+        <circle cx="455" cy="256" r="4.5"/>
+        <circle cx="492" cy="257" r="4.3"/>
+        <circle cx="529" cy="261" r="4.1"/>
+        <circle cx="565" cy="267" r="3.9"/>
+        <circle cx="600" cy="275" r="3.7"/>
+        <circle cx="633" cy="284" r="3.5"/>
+
+        <circle cx="290" cy="319" r="5.2"/>
+        <circle cx="322" cy="312" r="5.1"/>
+        <circle cx="356" cy="306" r="4.9"/>
+        <circle cx="391" cy="302" r="4.7"/>
+        <circle cx="427" cy="300" r="4.5"/>
+        <circle cx="463" cy="300" r="4.3"/>
+        <circle cx="499" cy="302" r="4.1"/>
+        <circle cx="534" cy="306" r="3.9"/>
+        <circle cx="568" cy="312" r="3.7"/>
+        <circle cx="600" cy="319" r="3.5"/>
+
+        <circle cx="315" cy="352" r="4.6"/>
+        <circle cx="344" cy="347" r="4.5"/>
+        <circle cx="374" cy="344" r="4.3"/>
+        <circle cx="405" cy="342" r="4.1"/>
+        <circle cx="437" cy="342" r="3.9"/>
+        <circle cx="469" cy="343" r="3.7"/>
+        <circle cx="500" cy="346" r="3.5"/>
+        <circle cx="530" cy="350" r="3.3"/>
+      </g>
+    </g>
+  </g>
+
+  <path d="M268 324C348 205 546 147 615 210C652 244 628 297 550 337C453 387 307 375 257 331C235 311 241 287 275 260" stroke="url(#ring)" stroke-width="23" stroke-linecap="round"/>
+  <path d="M274 321C348 357 487 353 584 309" stroke="#050607" stroke-width="16" stroke-linecap="round" opacity="0.95"/>
+  <path d="M281 319C366 356 498 347 596 298" stroke="url(#ring)" stroke-width="12" stroke-linecap="round"/>
+
+  <text x="450" y="500" text-anchor="middle" fill="url(#cyanText)" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="800" letter-spacing="26">NADJIB WEB</text>
+  <text x="450" y="562" text-anchor="middle" fill="#A7A7AF" font-family="Montserrat, Arial, sans-serif" font-size="31" font-weight="500" letter-spacing="20">SOLUTIONS</text>
+</svg>

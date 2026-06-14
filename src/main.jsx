@@ -3,6 +3,22 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
+// Global error handlers to avoid a single runtime error breaking the entire UI in production.
+// These will log errors to the console and keep the app mounted so the admin dashboard can still load data.
+window.addEventListener('error', (ev) => {
+  // prevent the default browser error overlay from stopping execution
+  try {
+     
+    console.error('Global error caught:', ev.error || ev.message || ev);
+  } catch { void 0; }
+});
+window.addEventListener('unhandledrejection', (ev) => {
+  try {
+     
+    console.error('Unhandled promise rejection:', ev.reason || ev);
+  } catch { void 0; }
+});
+
 const gmailComposeUrl =
   'https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=nedjaoumnadjib@gmail.com'
 

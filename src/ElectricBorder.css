@@ -1,0 +1,66 @@
+.electric-border {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: var(--border-radius, 24px);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(127,106,248,0.18), 0 0 35px rgba(127,106,248,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.electric-border::before,
+.electric-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.electric-border::before {
+  background:
+    linear-gradient(90deg, transparent 16%, rgba(127,106,248,0.45) 50%, transparent 84%) top / 100% 4px no-repeat,
+    linear-gradient(90deg, transparent 16%, rgba(127,106,248,0.45) 50%, transparent 84%) bottom / 100% 4px no-repeat,
+    linear-gradient(180deg, transparent 16%, rgba(127,106,248,0.45) 50%, transparent 84%) left / 4px 100% no-repeat,
+    linear-gradient(180deg, transparent 16%, rgba(127,106,248,0.45) 50%, transparent 84%) right / 4px 100% no-repeat;
+  opacity: 0.85;
+  animation: electric-border-glow 1.8s linear infinite;
+}
+
+.electric-border::after {
+  background: radial-gradient(circle at 20% 20%, rgba(127,106,248,0.22), transparent 20%),
+              radial-gradient(circle at 80% 80%, rgba(108, 205, 255, 0.16), transparent 18%);
+  filter: blur(12px);
+  opacity: 0.45;
+}
+
+.electric-border:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 0 1px rgba(127,106,248,0.32), 0 0 50px rgba(127,106,248,0.2);
+}
+
+.electric-border:hover::before {
+  opacity: 1;
+}
+
+.eb-canvas-container {
+  display: none;
+}
+
+.eb-content {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes electric-border-glow {
+  0% {
+    background-position: top left, bottom left, top left, top right;
+  }
+  50% {
+    background-position: top right, bottom right, top right, top left;
+  }
+  100% {
+    background-position: top left, bottom left, top left, top right;
+  }
+}
