@@ -298,25 +298,33 @@ const colorMap = {
 
 const portfolioCaseStudies = [
   {
-    image: "/personal/case-studies/commerce-storefront.jpg",
+    images: ["/personal/case-studies/commerce-storefront.jpg", "/personal/case-studies/food-ordering-mobile.png"],
     label: "Project showcase",
-    problem: "Create a focused storefront for browsing modern tech products.",
-    solution: "A clean product-led commerce experience with clear navigation and calls to action.",
-    outcome: "A polished catalogue flow that keeps product discovery simple."
+    problem: "Create focused shopping experiences for desktop and mobile customers.",
+    solution: "A product-led storefront paired with a compact mobile food-ordering interface.",
+    outcome: "Clear catalogue browsing and an easy path from discovery to order."
   },
   {
-    image: "/personal/case-studies/inventory-dashboard.jpg",
+    images: ["/personal/case-studies/inventory-dashboard.jpg"],
     label: "Project showcase",
     problem: "Make product and category information easier to manage at a glance.",
     solution: "A structured inventory dashboard with search, product actions, and visual category summaries.",
     outcome: "A clearer operational view of products, stock, and categories."
   },
   {
-    image: "/personal/case-studies/dialogue-workflow.jpg",
+    images: ["/personal/case-studies/dialogue-workflow.jpg"],
     label: "Project showcase",
     problem: "Help creators map branching dialogue and game logic without losing track of decisions.",
     solution: "A visual node editor for dialogue, conditions, variables, and outcomes.",
     outcome: "A workflow that makes complex scenario paths easier to review."
+  },
+  null,
+  {
+    images: ["/personal/case-studies/booking-dashboard.jpg"],
+    label: "Project showcase",
+    problem: "Give hospitality teams one place to oversee rooms, dates, and guest bookings.",
+    solution: "A calendar-based booking dashboard with room status, guest details, and fast booking actions.",
+    outcome: "A clear, schedule-first view of current and upcoming reservations."
   }
 ];
 
@@ -853,7 +861,11 @@ useEffect(() => {
                   <div className="portfolio-card-image" style={{ background: c.bg, height: 150, position: "relative", overflow: "hidden" }}>
                     {caseStudy ? (
                       <>
-                        <img className="portfolio-case-image" src={caseStudy.image} alt={`${p.title} project screenshot`} loading="lazy" />
+                        <div className={`portfolio-case-gallery ${caseStudy.images.length > 1 ? "portfolio-case-gallery-split" : ""}`}>
+                          {caseStudy.images.map((image, imageIndex) => (
+                            <img className="portfolio-case-image" src={image} alt={`${p.title} project screenshot ${imageIndex + 1}`} loading="lazy" key={image} />
+                          ))}
+                        </div>
                         <span className="portfolio-case-label">{caseStudy.label}</span>
                       </>
                     ) : (

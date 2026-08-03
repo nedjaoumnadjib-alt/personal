@@ -527,6 +527,18 @@ code {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
 }
 
+.portfolio-case-gallery {
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-case-gallery-split {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 2px;
+  background: rgba(11, 8, 28, 0.8);
+}
+
 .portfolio-case-image {
   display: block;
   width: 100%;
