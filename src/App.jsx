@@ -1,9 +1,6 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase, isSupabaseEnabled } from "./supabaseClient";
 import ElectricBorder from "./ElectricBorder";
-import GhostCursor from "./GhostCursor";
-import profileLogo from "./assets/nadjib-web-solutions.svg";
-
 
 
 function GmailIcon({ title }) {
@@ -45,96 +42,13 @@ function BlurText({ as: Tag = "span", text, className = "", style, delay = 0, st
   );
 }
 
-function ProfileCard({ image, onContact }) {
-  const cardRef = useRef(null);
-
-  const setPointerVars = (event) => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const fromLeft = x / rect.width;
-    const fromTop = y / rect.height;
-    const fromCenter = Math.min(
-      1,
-      Math.hypot(fromLeft - 0.5, fromTop - 0.5) / 0.707
-    );
-
-    card.style.setProperty("--pointer-x", `${fromLeft * 100}%`);
-    card.style.setProperty("--pointer-y", `${fromTop * 100}%`);
-    card.style.setProperty("--pointer-from-left", fromLeft.toFixed(3));
-    card.style.setProperty("--pointer-from-top", fromTop.toFixed(3));
-    card.style.setProperty("--pointer-from-center", fromCenter.toFixed(3));
-    card.style.setProperty("--rotate-x", `${(fromLeft - 0.5) * 14}deg`);
-    card.style.setProperty("--rotate-y", `${(0.5 - fromTop) * 12}deg`);
-    card.style.setProperty("--background-x", `${35 + fromLeft * 30}%`);
-    card.style.setProperty("--background-y", `${35 + fromTop * 30}%`);
-  };
-
-  const resetPointerVars = () => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    card.style.setProperty("--pointer-x", "50%");
-    card.style.setProperty("--pointer-y", "50%");
-    card.style.setProperty("--pointer-from-left", "0.5");
-    card.style.setProperty("--pointer-from-top", "0.5");
-    card.style.setProperty("--pointer-from-center", "0");
-    card.style.setProperty("--rotate-x", "0deg");
-    card.style.setProperty("--rotate-y", "0deg");
-    card.style.setProperty("--background-x", "50%");
-    card.style.setProperty("--background-y", "50%");
-  };
-
-  return (
-    <div
-      ref={cardRef}
-      className="pc-card-wrapper"
-      onPointerMove={setPointerVars}
-      onPointerLeave={resetPointerVars}
-    >
-      <div className="pc-behind" />
-      <article className="pc-card" aria-label="Nadjib profile card">
-        <div className="pc-inside" />
-        <div className="pc-photo-layer">
-          <img className="pc-photo" src={image} alt="ABDERRAHMANE NADJIB" />
-        </div>
-        <div className="pc-shine" />
-        <div className="pc-glare" />
-        <div className="pc-content">
-          <div className="pc-details">
-            <h3>NADJIB</h3>
-            <p>Full-stack creator</p>
-          </div>
-        </div>
-        <div className="pc-user-info">
-          <div className="pc-user-details">
-            <div className="pc-mini-avatar">
-              <img src={image} alt="" />
-            </div>
-            <div className="pc-user-text">
-              <a className="pc-handle" href="mailto:nedjaoumnadjib@gmail.com">nedjaoumnadjib@gmail.com</a>
-              <span className="pc-status">Available for projects</span>
-            </div>
-          </div>
-          <button className="pc-contact-btn" type="button" onClick={onContact}>
-            Contact
-          </button>
-        </div>
-      </article>
-    </div>
-  );
-}
-
 const TRANSLATIONS = {
   en: {
     nav: { home: "Home", rating: "Rating", about: "About", services: "Services", portfolio: "Portfolio", contact: "Contact", dashboard: "Dashboard" },
     hero: {
       greeting: "Hello, I'm",
       name: "ABDERRAHMANE NADJIB",
-      title: "IM JUST MAN CAN DO WHAT THEY CANT DO",
+      title: "I'M JUST A MAN WHO CAN DO WHAT THEY CAN'T DO",
       subtitle: "I build custom websites, web apps, desktop software, and automation scripts — tailored precisely to your needs.",
       cta: "Start a Project",
       ctaSecondary: "View My Work",
@@ -382,8 +296,34 @@ const colorMap = {
   green:  { bg: "linear-gradient(135deg, #196a32 0%, #66c175 100%)", border: "#59d38f", text: "#effff1", badge: "#59d38f" },
 };
 
+const portfolioCaseStudies = [
+  {
+    image: "/personal/case-studies/commerce-storefront.jpg",
+    label: "Project showcase",
+    problem: "Create a focused storefront for browsing modern tech products.",
+    solution: "A clean product-led commerce experience with clear navigation and calls to action.",
+    outcome: "A polished catalogue flow that keeps product discovery simple."
+  },
+  {
+    image: "/personal/case-studies/inventory-dashboard.jpg",
+    label: "Project showcase",
+    problem: "Make product and category information easier to manage at a glance.",
+    solution: "A structured inventory dashboard with search, product actions, and visual category summaries.",
+    outcome: "A clearer operational view of products, stock, and categories."
+  },
+  {
+    image: "/personal/case-studies/dialogue-workflow.jpg",
+    label: "Project showcase",
+    problem: "Help creators map branching dialogue and game logic without losing track of decisions.",
+    solution: "A visual node editor for dialogue, conditions, variables, and outcomes.",
+    outcome: "A workflow that makes complex scenario paths easier to review."
+  }
+];
+
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
 const isApiEnabled = Boolean(API_BASE_URL);
+const ADMIN_USER = (import.meta.env.VITE_ADMIN_USER || "nadjib").trim().toLowerCase();
+const ADMIN_PASS = (import.meta.env.VITE_ADMIN_PASS || "admin123").trim();
 
 async function apiRequest(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
@@ -405,7 +345,6 @@ async function apiRequest(path, options = {}) {
 export default function App() {
   const [lang, setLang] = useState("en");
   const [section, setSection] = useState("home");
-  const [, setMenuOpen] = useState(false);
   const [requests, setRequests] = useState([]);
   const [adminLoggedIn, setAdminLoggedIn] = useState(false);
   const [toasts, setToasts] = useState([]);
@@ -415,7 +354,7 @@ export default function App() {
   const [backendError, setBackendError] = useState("");
   const [portfolioFilter, setPortfolioFilter] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
-  const [form, setForm] = useState({ name: "", email: "", type: "", budget: "", desc: "", rating: "", review: "" });
+  const [form, setForm] = useState({ name: "", email: "", type: "", budget: "", desc: "" });
   const [formSent, setFormSent] = useState(false);
   const [ratingSent, setRatingSent] = useState(false);
   const [submittedTestimonials, setSubmittedTestimonials] = useState([]);
@@ -424,6 +363,17 @@ export default function App() {
   const [statusChecked, setStatusChecked] = useState(false);
   const t = TRANSLATIONS[lang];
   const isRTL = lang === "ar";
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (adminLoggedIn) {
+      window.localStorage.setItem("portfolio-admin", "true");
+    } else {
+      window.localStorage.removeItem("portfolio-admin");
+    }
+  }, [adminLoggedIn]);
+
   const submitForm = async () => {
     if (!form.name || !form.email || !form.type) return;
     const newReq = {
@@ -435,7 +385,7 @@ export default function App() {
 
     setRequests(prev => [...prev, newReq]);
     setFormSent(true);
-    setForm({ name: "", email: "", type: "", budget: "", desc: "", rating: "", review: "" });
+    setForm({ name: "", email: "", type: "", budget: "", desc: "" });
 
     if (isApiEnabled) {
       try {
@@ -449,31 +399,6 @@ export default function App() {
     } else if (isSupabaseEnabled) {
       const { error } = await supabase.from("requests").insert([{ ...newReq }]);
       if (error) setBackendError(`Failed to save request: ${error.message}`);
-    }
-
-    if (form.review || form.rating) {
-      const newTestimonial = {
-        request_id: newReq.id,
-        name: form.name || "Client",
-        role: t.contact.reviewRole,
-        text: form.review || "Great experience.",
-        rating: Number(form.rating) || 5,
-        created_at: new Date().toISOString(),
-      };
-      setSubmittedTestimonials(prev => [...prev, newTestimonial]);
-      if (isApiEnabled) {
-        try {
-          await apiRequest("/testimonials", {
-            method: "POST",
-            body: JSON.stringify(newTestimonial),
-          });
-        } catch (error) {
-          setBackendError(`Failed to save testimonial: ${error.message}`);
-        }
-      } else if (isSupabaseEnabled) {
-        const { error } = await supabase.from("testimonials").insert([{ ...newTestimonial }]);
-        if (error) setBackendError(`Failed to save testimonial: ${error.message}`);
-      }
     }
 
     setTimeout(() => setFormSent(false), 5000);
@@ -576,46 +501,54 @@ export default function App() {
 }, []);
 
 // Real-time updates: subscribe to Supabase changes so admin sees new orders/ratings immediately
-// `isSupabaseEnabled` is a static module-level flag; omit from deps to avoid re-subscribing.
+// Guard the subscriber setup so the page still renders even when the realtime endpoint is unavailable.
 useEffect(() => {
-  if (!isSupabaseEnabled) return;
+  if (!isSupabaseEnabled || !supabase) return undefined;
 
-  const reqChannel = supabase
-    .channel('public:requests')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'requests' }, (payload) => {
-      const newRow = payload.new;
-      setRequests(prev => [newRow, ...prev]);
-      if (adminLoggedIn) {
-        const msg = `New order: ${newRow.id} — ${newRow.name}`;
-        const id = Date.now();
-        setToasts(prev => [{ id, msg, kind: 'order' }, ...prev]);
-        setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 6000);
-      }
-    })
-    .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'requests' }, (payload) => {
-      const newRow = payload.new;
-      setRequests(prev => prev.map(r => (r.id === newRow.id ? newRow : r)));
-    })
-    .subscribe();
+  let reqChannel = null;
+  let testChannel = null;
 
-  const testChannel = supabase
-    .channel('public:testimonials')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'testimonials' }, (payload) => {
-      const newRow = payload.new;
-      setSubmittedTestimonials(prev => [newRow, ...prev]);
-      if (adminLoggedIn) {
-        const msg = `New rating: ${newRow.name} — ${newRow.rating}★`;
-        const id = Date.now() + 1;
-        setToasts(prev => [{ id, msg, kind: 'rating' }, ...prev]);
-        setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 6000);
-      }
-    })
-    .subscribe();
+  try {
+    reqChannel = supabase
+      .channel('public:requests')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'requests' }, (payload) => {
+        const newRow = payload.new;
+        setRequests(prev => [newRow, ...prev]);
+        if (adminLoggedIn) {
+          const msg = `New order: ${newRow.id} — ${newRow.name}`;
+          const id = Date.now();
+          setToasts(prev => [{ id, msg, kind: 'order' }, ...prev]);
+          setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 6000);
+        }
+      })
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'requests' }, (payload) => {
+        const newRow = payload.new;
+        setRequests(prev => prev.map(r => (r.id === newRow.id ? newRow : r)));
+      });
+
+    testChannel = supabase
+      .channel('public:testimonials')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'testimonials' }, (payload) => {
+        const newRow = payload.new;
+        setSubmittedTestimonials(prev => [newRow, ...prev]);
+        if (adminLoggedIn) {
+          const msg = `New rating: ${newRow.name} — ${newRow.rating}★`;
+          const id = Date.now() + 1;
+          setToasts(prev => [{ id, msg, kind: 'rating' }, ...prev]);
+          setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 6000);
+        }
+      });
+
+    reqChannel.subscribe();
+    testChannel.subscribe();
+  } catch (error) {
+    console.error('Realtime subscription failed:', error);
+  }
 
   return () => {
     try {
-      supabase.removeChannel(reqChannel);
-      supabase.removeChannel(testChannel);
+      if (reqChannel) supabase.removeChannel(reqChannel);
+      if (testChannel) supabase.removeChannel(testChannel);
     } catch {
       // ignore cleanup errors
     }
@@ -672,41 +605,53 @@ useEffect(() => {
   };
 
   const handleAdminLogin = () => {
-    if (adminCreds.user === "nadjib" && adminCreds.pass === "admin123") {
+    const user = (adminCreds.user || "").trim().toLowerCase();
+    const pass = (adminCreds.pass || "").trim();
+
+    if (user === ADMIN_USER && pass === ADMIN_PASS) {
       setAdminLoggedIn(true);
       setLoginError(false);
-    } else setLoginError(true);
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("portfolio-admin", "true");
+      }
+    } else {
+      setAdminLoggedIn(false);
+      setLoginError(true);
+      if (typeof window !== "undefined") {
+        window.localStorage.removeItem("portfolio-admin");
+      }
+    }
   };
 
   const navItems = ["home", "rating", "about", "services", "portfolio", "contact"];
 
   const styles = {
-    page: { fontFamily: "'Inter', 'Segoe UI', sans-serif", background: "transparent", color: "#d9d1ff", minHeight: "100vh", direction: isRTL ? "rtl" : "ltr" },
-    nav: { position: "sticky", top: 0, zIndex: 100, background: "rgba(5,7,17,0.88)", backdropFilter: "blur(18px)", borderBottom: "1px solid rgba(141,154,255,0.16)", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 },
+    page: { position: "relative", isolation: "isolate", overflowX: "clip", fontFamily: "'Inter', 'Segoe UI', sans-serif", background: "#020202", color: "#f6d8d8", minHeight: "100vh", direction: isRTL ? "rtl" : "ltr" },
+    nav: { position: "sticky", top: 0, zIndex: 100, background: "rgba(16, 3, 3, 0.92)", backdropFilter: "blur(18px)", borderBottom: "1px solid rgba(255, 62, 62, 0.25)", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 },
     logo: { fontWeight: 700, fontSize: 20, color: "#fff", letterSpacing: "-0.5px" },
-    logoAccent: { color: "#b9a9ff" },
+    logoAccent: { color: "#ff6666" },
     navLinks: { display: "flex", gap: 4, alignItems: "center" },
-    navLink: (active) => ({ background: active ? "rgba(127,106,248,0.17)" : "transparent", color: active ? "#d5c8ff" : "#cfc6ff", border: "none", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 14, fontWeight: active ? 500 : 400, transition: "all 0.15s" }),
-    langBtn: (active) => ({ background: active ? "#7f6af8" : "rgba(127,106,248,0.12)", color: active ? "#141414" : "#cfc6ff", border: "none", padding: "4px 10px", borderRadius: 6, cursor: "pointer", fontSize: 13, fontWeight: 500 }),
+    navLink: (active) => ({ background: active ? "rgba(255, 68, 68, 0.18)" : "transparent", color: active ? "#ffe3e3" : "#f3d6d6", border: "none", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 14, fontWeight: active ? 500 : 400, transition: "all 0.15s" }),
+    langBtn: (active) => ({ background: active ? "#ff3b3b" : "rgba(255, 68, 68, 0.12)", color: active ? "#fff" : "#f3d6d6", border: "none", padding: "4px 10px", borderRadius: 6, cursor: "pointer", fontSize: 13, fontWeight: 500 }),
     section: { padding: "80px 24px", maxWidth: 1000, margin: "0 auto" },
-    sectionAlt: { background: "rgba(8,12,26,0.46)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.025), inset 0 -1px 0 rgba(255,255,255,0.02)" },
-    badge: { display: "inline-block", background: "rgba(127,106,248,0.18)", color: "#d8d0ff", borderRadius: 20, padding: "4px 14px", fontSize: 13, fontWeight: 500, marginBottom: 16, border: "1px solid rgba(127,106,248,0.3)" },
-    h2: { fontSize: 36, fontWeight: 700, color: "#fff", margin: "0 0 8px", letterSpacing: "-0.5px" },
-    sub: { color: "#cfc6ff", fontSize: 16, marginBottom: 48 },
-    primaryBtn: { background: "#7f6af8", color: "#fff", border: "none", padding: "12px 28px", borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all 0.15s" },
-    ghostBtn: { background: "transparent", color: "#d9d1ff", border: "1px solid rgba(127,106,248,0.28)", padding: "12px 28px", borderRadius: 10, fontSize: 15, fontWeight: 500, cursor: "pointer", transition: "all 0.15s" },
-    card: { background: "rgba(10,14,30,0.72)", border: "1px solid rgba(141,154,255,0.18)", borderRadius: 14, padding: "24px", transition: "all 0.2s", boxShadow: "0 22px 46px rgba(0,0,0,0.18)" },
-    input: { width: "100%", background: "rgba(9,12,27,0.72)", border: "1px solid rgba(141,154,255,0.22)", borderRadius: 8, padding: "10px 14px", color: "#f0ebff", fontSize: 14, outline: "none", boxSizing: "border-box" },
-    label: { display: "block", color: "#c8c4e5", fontSize: 13, marginBottom: 6, fontWeight: 500 },
+    sectionAlt: { background: "rgba(20, 4, 4, 0.62)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.025), inset 0 -1px 0 rgba(255,255,255,0.02)" },
+    badge: { display: "inline-block", background: "rgba(255, 68, 68, 0.18)", color: "#ffe3e3", borderRadius: 20, padding: "4px 14px", fontSize: 13, fontWeight: 500, marginBottom: 16, border: "1px solid rgba(255, 76, 76, 0.32)" },
+    h2: { fontSize: 36, fontWeight: 700, color: "#fff5f5", margin: "0 0 8px", letterSpacing: "-0.5px" },
+    sub: { color: "#f2d0d0", fontSize: 16, marginBottom: 48 },
+    primaryBtn: { background: "#ff3b3b", color: "#fff", border: "none", padding: "12px 28px", borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all 0.15s" },
+    ghostBtn: { background: "transparent", color: "#ffe5e5", border: "1px solid rgba(255, 76, 76, 0.32)", padding: "12px 28px", borderRadius: 10, fontSize: 15, fontWeight: 500, cursor: "pointer", transition: "all 0.15s" },
+    card: { background: "rgba(21, 4, 4, 0.78)", border: "1px solid rgba(255, 76, 76, 0.22)", borderRadius: 14, padding: "24px", transition: "all 0.2s", boxShadow: "0 22px 46px rgba(0,0,0,0.28)" },
+    input: { width: "100%", background: "rgba(17, 5, 5, 0.82)", border: "1px solid rgba(255, 76, 76, 0.32)", borderRadius: 8, padding: "10px 14px", color: "#fff4f4", fontSize: 14, outline: "none", boxSizing: "border-box" },
+    label: { display: "block", color: "#f0c9c9", fontSize: 13, marginBottom: 6, fontWeight: 500 },
     grid2: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 },
     grid3: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20 },
-    whatsapp: { position: "fixed", bottom: 90, right: 24, background: "linear-gradient(135deg, #7f6af8, #5a51d1)", color: "#fff", border: "none", borderRadius: "50%", width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 200, boxShadow: "0 14px 28px rgba(127,106,248,0.28)", fontSize: 24 },
-    emailFloat: { position: "fixed", bottom: 24, right: 24, background: "linear-gradient(135deg, #5a51d1, #7f6af8)", color: "#fff", border: "none", borderRadius: "50%", width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 200, boxShadow: "0 14px 28px rgba(127,106,248,0.28)", fontSize: 24 },
+    whatsapp: { position: "fixed", bottom: 90, right: 24, background: "linear-gradient(135deg, #ff4f4f, #aa1212)", color: "#fff", border: "none", borderRadius: "50%", width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 200, boxShadow: "0 14px 28px rgba(255, 68, 68, 0.28)", fontSize: 24 },
+    emailFloat: { position: "fixed", bottom: 24, right: 24, background: "linear-gradient(135deg, #aa1212, #ff4f4f)", color: "#fff", border: "none", borderRadius: "50%", width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 200, boxShadow: "0 14px 28px rgba(255, 68, 68, 0.28)", fontSize: 24 },
     
   };
 
-  const statusColor = { pending: "#d8c8ff", reviewed: "#c3b0ff", accepted: "#9d86ff", declined: "#f5b4ff" };
-  const statusBg = { pending: "rgba(167,137,255,0.16)", reviewed: "rgba(159,131,255,0.16)", accepted: "rgba(157,134,255,0.16)", declined: "rgba(249,184,255,0.18)" };
+  const statusColor = { pending: "#ffd2d2", reviewed: "#ff9f9f", accepted: "#ff5b5b", declined: "#ffe4e4" };
+  const statusBg = { pending: "rgba(255, 62, 62, 0.14)", reviewed: "rgba(255, 78, 78, 0.18)", accepted: "rgba(255, 45, 45, 0.22)", declined: "rgba(255, 104, 104, 0.12)" };
 
   const filteredPortfolio = portfolioFilter === 0
     ? t.portfolio.items
@@ -728,8 +673,6 @@ useEffect(() => {
 
   return (
     <div style={styles.page}>
-      <GhostCursor global />
-
       {/* Toast container for admin notifications */}
       <div style={{ position: 'fixed', top: 20, right: 20, zIndex: 9999, display: 'flex', flexDirection: 'column', gap: 10 }} aria-live="polite">
         {toasts.map(t => (
@@ -742,9 +685,6 @@ useEffect(() => {
 
       {/* NAV */}
       <nav style={styles.nav}>
-        <button className="nav-logo-mark" type="button" onClick={() => scrollTo("home")} aria-label="Go to home">
-          <img src={profileLogo} alt="Nadjib Web Solutions" />
-        </button>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div
             className="gooey-nav"
@@ -781,18 +721,12 @@ useEffect(() => {
       </nav>
 
       {/* HERO */}
-      <section id="home" className="hero-stage" style={{ minHeight: "92vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 24px", position: "relative", overflow: "hidden", background: "linear-gradient(180deg, rgba(5,7,17,0.38) 0%, rgba(8,10,24,0.74) 100%)" }}>
+      <section id="home" className="hero-stage" style={{ minHeight: "92vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 24px", position: "relative", overflow: "hidden", background: "transparent" }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.035), transparent 34%, rgba(0,0,0,0.24))", pointerEvents: "none" }} />
         <div className="hero-shape hero-shape-large" style={{ top: "8%", left: "-8%" }} />
         <div className="hero-shape hero-shape-medium" style={{ bottom: "8%", right: "-10%" }} />
         <div className="hero-shape hero-shape-small" style={{ top: "24%", right: "18%" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 760 }}>
-          <div className="hero-logo-stage" aria-label="Nadjib Web Solutions logo">
-            <div className="hero-logo-orbit" aria-hidden="true" />
-            <div className="hero-logo-card">
-              <img src={profileLogo} alt="Nadjib Web Solutions" />
-            </div>
-          </div>
           <BlurText
             as="p"
             text={t.hero.greeting}
@@ -845,66 +779,6 @@ useEffect(() => {
                 {tech}
               </span>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* RATING */}
-      <section id="rating" style={{ ...styles.section, ...styles.sectionAlt }}>
-        <div style={{ maxWidth: 700, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <div style={styles.badge}>Rating</div>
-            <h2 style={styles.h2}>Rate My Work</h2>
-            <p style={{ color: "#cfc6ff", fontSize: 15, lineHeight: 1.8, margin: "0 auto", maxWidth: 620 }}>
-              Share a short review and rating so future clients can see your real feedback.
-            </p>
-          </div>
-          <div style={{ ...styles.card, padding: 24 }}>
-            {ratingSent && (
-              <p style={{ color: "#b9a9ff", marginBottom: 16, fontWeight: 600 }}>Thank you! Your rating was added.</p>
-            )}
-            <div style={styles.grid2}>
-              <div>
-                <label style={styles.label}>{t.contact.fields.name}</label>
-                <input style={styles.input} value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="John Doe" />
-              </div>
-              <div>
-                <label style={styles.label}>{t.contact.fields.rating}</label>
-                <select style={{ ...styles.input, cursor: "pointer", color: "#f8f4ff", background: "rgba(127,106,248,0.16)" }} value={form.rating} onChange={e => setForm({ ...form, rating: e.target.value })}>
-                  <option value="" style={{ color: "#8887b7", background: "rgba(18, 15, 41, 1)" }}>—</option>
-                  {[5, 4, 3, 2, 1].map(value => (
-                    <option key={value} value={value} style={{ color: "#f8f4ff", background: "rgba(18, 15, 41, 1)" }}>{value} ★</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div style={{ height: 16 }} />
-            <div>
-              <label style={styles.label}>{t.contact.fields.review}</label>
-              <textarea style={{ ...styles.input, minHeight: 120, resize: "vertical" }} value={form.review} onChange={e => setForm({ ...form, review: e.target.value })} placeholder="Share a short review of my work..." />
-            </div>
-            <div style={{ marginTop: 20, textAlign: "right" }}>
-              <button style={styles.primaryBtn} onClick={submitRating} disabled={!form.name || !form.rating || !form.review}>
-                Submit Rating
-              </button>
-            </div>
-          </div>
-          <div style={{ marginTop: 28 }}>
-            <h3 style={{ color: "#fff", fontSize: 22, margin: "0 0 14px" }}>Recent Ratings</h3>
-            <div style={{ display: "grid", gap: 12 }}>
-              {[...submittedTestimonials, ...t.testimonials.items].slice(0, 6).map((item, index) => (
-                <div key={`${item.name}-${item.created_at || index}`} style={{ background: "rgba(127,106,248,0.12)", border: "1px solid rgba(127,106,248,0.24)", borderRadius: 12, padding: 18 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center", marginBottom: 8 }}>
-                    <div>
-                      <p style={{ color: "#f8f4ff", fontWeight: 600, margin: "0 0 2px" }}>{item.name}</p>
-                      <p style={{ color: "#b8b2e4", fontSize: 12, margin: 0 }}>{item.role || t.contact.reviewRole || "Client"}</p>
-                    </div>
-                    <span style={{ color: "#fbbf24", whiteSpace: "nowrap", fontWeight: 700 }}>{item.rating} stars</span>
-                  </div>
-                  <p style={{ color: "#d0c7ff", fontSize: 14, lineHeight: 1.7, margin: 0 }}>{item.text}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -973,14 +847,24 @@ useEffect(() => {
           <div style={styles.grid3}>
             {filteredPortfolio.map((p, i) => {
               const c = colorMap[p.color] || colorMap.purple;
+              const caseStudy = portfolioCaseStudies[t.portfolio.items.indexOf(p)];
               return (
                 <div key={i} style={{ background: "rgba(127,106,248,0.12)", border: "1px solid rgba(127,106,248,0.24)", borderRadius: 14, overflow: "hidden" }}>
                   <div className="portfolio-card-image" style={{ background: c.bg, height: 150, position: "relative", overflow: "hidden" }}>
-                    <div className="portfolio-card-spark" style={{ top: 16, left: 18, background: c.badge, width: 56, height: 56 }} />
-                    <div className="portfolio-card-spark" style={{ top: 28, right: 20, background: "rgba(167,137,255,0.18)", width: 30, height: 30, animationDuration: "5.5s" }} />
-                    <div className="portfolio-card-spark" style={{ bottom: 18, left: 36, background: "rgba(167,137,255,0.14)", width: 18, height: 18, animationDuration: "9s" }} />
-                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.08), transparent 72%)" }} />
-                    <div style={{ position: "absolute", width: "78%", height: "62%", top: "18%", left: "11%", borderRadius: 20, background: "rgba(127,106,248,0.08)", border: "1px solid rgba(127,106,248,0.14)", boxShadow: "inset 0 0 0 1px rgba(127,106,248,0.06)" }} />
+                    {caseStudy ? (
+                      <>
+                        <img className="portfolio-case-image" src={caseStudy.image} alt={`${p.title} project screenshot`} loading="lazy" />
+                        <span className="portfolio-case-label">{caseStudy.label}</span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="portfolio-card-spark" style={{ top: 16, left: 18, background: c.badge, width: 56, height: 56 }} />
+                        <div className="portfolio-card-spark" style={{ top: 28, right: 20, background: "rgba(167,137,255,0.18)", width: 30, height: 30, animationDuration: "5.5s" }} />
+                        <div className="portfolio-card-spark" style={{ bottom: 18, left: 36, background: "rgba(167,137,255,0.14)", width: 18, height: 18, animationDuration: "9s" }} />
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.08), transparent 72%)" }} />
+                        <div style={{ position: "absolute", width: "78%", height: "62%", top: "18%", left: "11%", borderRadius: 20, background: "rgba(127,106,248,0.08)", border: "1px solid rgba(127,106,248,0.14)", boxShadow: "inset 0 0 0 1px rgba(127,106,248,0.06)" }} />
+                      </>
+                    )}
                   </div>
                   <div style={{ padding: 20 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
@@ -988,6 +872,13 @@ useEffect(() => {
                       <span style={{ background: c.bg, color: c.text, fontSize: 11, padding: "2px 8px", borderRadius: 20, fontWeight: 500 }}>{p.cat}</span>
                     </div>
                     <p style={{ color: "#d0c7ff", fontSize: 13, lineHeight: 1.6, marginBottom: 12 }}>{p.desc}</p>
+                    {caseStudy && (
+                      <dl className="portfolio-case-study">
+                        <div><dt>Challenge</dt><dd>{caseStudy.problem}</dd></div>
+                        <div><dt>Approach</dt><dd>{caseStudy.solution}</dd></div>
+                        <div><dt>Outcome</dt><dd>{caseStudy.outcome}</dd></div>
+                      </dl>
+                    )}
                     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                       {p.tech.map(t2 => (
                         <span key={t2} style={{ background: "rgba(127,106,248,0.16)", color: "#d8d0ff", fontSize: 11, padding: "2px 8px", borderRadius: 6 }}>{t2}</span>
@@ -1003,6 +894,66 @@ useEffect(() => {
                 <p style={{ color: "#b8b2e4", fontSize: 13, margin: 0 }}>Try a different category or check back soon for new case studies.</p>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* RATING */}
+      <section id="rating" style={{ ...styles.section, ...styles.sectionAlt }}>
+        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 32 }}>
+            <div style={styles.badge}>Rating</div>
+            <h2 style={styles.h2}>Rate My Work</h2>
+            <p style={{ color: "#f2d0d0", fontSize: 15, lineHeight: 1.8, margin: "0 auto", maxWidth: 620 }}>
+              Share a short review and rating so future clients can see your real feedback.
+            </p>
+          </div>
+          <div style={{ ...styles.card, padding: 24 }}>
+            {ratingSent && (
+              <p style={{ color: "#ffadad", marginBottom: 16, fontWeight: 600 }}>Thank you! Your rating was added.</p>
+            )}
+            <div style={styles.grid2}>
+              <div>
+                <label style={styles.label}>{t.contact.fields.name}</label>
+                <input style={styles.input} value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="John Doe" />
+              </div>
+              <div>
+                <label style={styles.label}>{t.contact.fields.rating}</label>
+                <select style={{ ...styles.input, cursor: "pointer", color: "#fff4f4", background: "rgba(255, 68, 68, 0.14)" }} value={form.rating} onChange={e => setForm({ ...form, rating: e.target.value })}>
+                  <option value="" style={{ color: "#d39f9f", background: "rgba(18, 6, 6, 1)" }}>—</option>
+                  {[5, 4, 3, 2, 1].map(value => (
+                    <option key={value} value={value} style={{ color: "#fff4f4", background: "rgba(18, 6, 6, 1)" }}>{value} ★</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div style={{ height: 16 }} />
+            <div>
+              <label style={styles.label}>{t.contact.fields.review}</label>
+              <textarea style={{ ...styles.input, minHeight: 120, resize: "vertical" }} value={form.review} onChange={e => setForm({ ...form, review: e.target.value })} placeholder="Share a short review of my work..." />
+            </div>
+            <div style={{ marginTop: 20, textAlign: "right" }}>
+              <button style={styles.primaryBtn} onClick={submitRating} disabled={!form.name || !form.rating || !form.review}>
+                Submit Rating
+              </button>
+            </div>
+          </div>
+          <div style={{ marginTop: 28 }}>
+            <h3 style={{ color: "#fff", fontSize: 22, margin: "0 0 14px" }}>Recent Ratings</h3>
+            <div style={{ display: "grid", gap: 12 }}>
+              {[...submittedTestimonials, ...t.testimonials.items].slice(0, 6).map((item, index) => (
+                <div key={`${item.name}-${item.created_at || index}`} style={{ background: "rgba(255, 68, 68, 0.09)", border: "1px solid rgba(255, 76, 76, 0.24)", borderRadius: 12, padding: 18 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center", marginBottom: 8 }}>
+                    <div>
+                      <p style={{ color: "#fff4f4", fontWeight: 600, margin: "0 0 2px" }}>{item.name}</p>
+                      <p style={{ color: "#f0c9c9", fontSize: 12, margin: 0 }}>{item.role || t.contact.reviewRole || "Client"}</p>
+                    </div>
+                    <span style={{ color: "#ffb347", whiteSpace: "nowrap", fontWeight: 700 }}>{item.rating} stars</span>
+                  </div>
+                  <p style={{ color: "#f0d6d6", fontSize: 14, lineHeight: 1.7, margin: 0 }}>{item.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1071,20 +1022,6 @@ useEffect(() => {
                 </div>
               </div>
               <div style={{ height: 16 }} />
-              <div style={styles.grid2}>
-                <div>
-                  <label style={styles.label}>{t.contact.fields.rating}</label>
-                  <select style={{ ...styles.input, cursor: "pointer", color: "#f8f4ff", background: "rgba(127,106,248,0.16)" }} value={form.rating} onChange={e => setForm({ ...form, rating: e.target.value })}>
-                    <option value="" style={{ color: "#8887b7", background: "rgba(18, 15, 41, 1)" }}>—</option>
-                    {[5, 4, 3, 2, 1].map(value => <option key={value} value={value} style={{ color: "#f8f4ff", background: "rgba(18, 15, 41, 1)" }}>{value} ★</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label style={styles.label}>{t.contact.fields.review}</label>
-                  <textarea style={{ ...styles.input, minHeight: 120, resize: "vertical" }} value={form.review} onChange={e => setForm({ ...form, review: e.target.value })} placeholder="Share a short review of my work..." />
-                </div>
-              </div>
-              <div style={{ height: 16 }} />
               <div style={{ marginTop: 20, textAlign: "right" }}>
                 <button style={styles.primaryBtn} onClick={submitForm} disabled={!form.name || !form.email || !form.type}>
                   {t.contact.fields.submit}
@@ -1146,15 +1083,20 @@ useEffect(() => {
           <div style={styles.badge}>{t.admin.title}</div>
           <h2 style={styles.h2}>{t.admin.title}</h2>
           <p style={styles.sub}>{t.admin.subtitle}</p>
+          {backendError && (
+            <div style={{ background: "rgba(248, 180, 255, 0.12)", border: "1px solid rgba(248, 180, 255, 0.3)", borderRadius: 10, color: "#f8b4ff", fontSize: 13, lineHeight: 1.5, margin: "0 0 20px", padding: "10px 14px" }}>
+              {backendError}
+            </div>
+          )}
 
           {!adminLoggedIn ? (
             <div style={{ maxWidth: 360, margin: "0 auto" }}>
               <div style={styles.card}>
                 <h3 style={{ color: "#fff", fontWeight: 600, marginBottom: 20, textAlign: "center" }}>{t.admin.login.title}</h3>
                 <label style={styles.label}>{t.admin.login.user}</label>
-                <input style={{ ...styles.input, marginBottom: 12 }} value={adminCreds.user} onChange={e => setAdminCreds({ ...adminCreds, user: e.target.value })} placeholder="nadjib" />
+                <input style={{ ...styles.input, marginBottom: 12 }} value={adminCreds.user} onChange={e => setAdminCreds({ ...adminCreds, user: e.target.value })} placeholder="Username" />
                 <label style={styles.label}>{t.admin.login.pass}</label>
-                <input style={{ ...styles.input, marginBottom: 4 }} type="password" value={adminCreds.pass} onChange={e => setAdminCreds({ ...adminCreds, pass: e.target.value })} placeholder="••••••••" onKeyDown={e => e.key === "Enter" && handleAdminLogin()} />
+                <input style={{ ...styles.input, marginBottom: 4 }} type="password" value={adminCreds.pass} onChange={e => setAdminCreds({ ...adminCreds, pass: e.target.value })} placeholder="Password" onKeyDown={e => e.key === "Enter" && handleAdminLogin()} />
                 {loginError && <p style={{ color: "#f8b4ff", fontSize: 13, marginBottom: 12 }}>{t.admin.login.error}</p>}
                 <div style={{ height: 16 }} />
                 <button style={{ ...styles.primaryBtn, width: "100%" }} onClick={handleAdminLogin}>{t.admin.login.btn}</button>
@@ -1164,44 +1106,43 @@ useEffect(() => {
             <>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16, marginBottom: 32 }}>
                 {Object.entries({ total: requests.length, pending: requests.filter(r => r.status === "pending").length, accepted: requests.filter(r => r.status === "accepted").length, ratings: submittedTestimonials.length }).map(([k, v]) => (
-                  <div key={k} style={{ background: "rgba(127,106,248,0.16)", border: "1px solid rgba(127,106,248,0.28)", borderRadius: 12, padding: "20px 24px" }}>
-                    <p style={{ color: "#d8d0ff", fontSize: 13, margin: "0 0 4px", textTransform: "capitalize" }}>{k === "total" ? "Total Requests" : k === "pending" ? "Pending" : k === "accepted" ? "Accepted" : "Ratings"}</p>
+                  <div key={k} style={{ background: "linear-gradient(135deg, rgba(48, 8, 8, 0.98), rgba(15, 2, 2, 0.96))", border: "1px solid rgba(255, 72, 72, 0.36)", borderRadius: 14, padding: "20px 24px", boxShadow: "0 16px 34px rgba(0,0,0,0.35)" }}>
+                    <p style={{ color: "#ffb8b8", fontSize: 13, margin: "0 0 4px", textTransform: "capitalize" }}>{k === "total" ? "Total Requests" : k === "pending" ? "Pending" : k === "accepted" ? "Accepted" : "Ratings"}</p>
                     <p style={{ color: "#fff", fontSize: 32, fontWeight: 700, margin: 0 }}>{v}</p>
                   </div>
                 ))}
               </div>
               <div style={{ position: "relative", overflow: "hidden", borderRadius: 20, padding: "24px 0 0 0" }}>
-                <GhostCursor style={{ position: "absolute", inset: 0, zIndex: 0, opacity: 0.72, mixBlendMode: "screen" }} />
-                <div style={{ overflowX: "auto", position: "relative", zIndex: 1 }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, background: "rgba(18, 15, 41, 0.88)" }}>
+                <div style={{ overflowX: "auto", position: "relative", zIndex: 1, borderRadius: 16, border: "1px solid rgba(255, 72, 72, 0.28)", background: "rgba(18, 6, 6, 0.88)", boxShadow: "0 18px 40px rgba(0,0,0,0.32)" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
                     <thead>
-                      <tr style={{ borderBottom: "1px solid rgba(127,106,248,0.24)" }}>
+                      <tr style={{ background: "linear-gradient(90deg, rgba(85, 9, 9, 0.98), rgba(42, 7, 7, 0.94))", borderBottom: "1px solid rgba(255, 72, 72, 0.24)" }}>
                         {["ID", ...t.admin.cols, "Actions"].map(col => (
-                          <th key={col} style={{ textAlign: isRTL ? "right" : "left", padding: "10px 14px", color: "#d8d0ff", fontWeight: 500, fontSize: 13 }}>{col}</th>
+                          <th key={col} style={{ textAlign: isRTL ? "right" : "left", padding: "12px 14px", color: "#ffe2e2", fontWeight: 700, fontSize: 13, letterSpacing: "0.6px", textTransform: "uppercase" }}>{col}</th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
                       {requests.length === 0 ? (
-                        <tr><td colSpan={8} style={{ textAlign: "center", padding: 40, color: "#d8d0ff" }}>{t.admin.empty}</td></tr>
+                        <tr><td colSpan={8} style={{ textAlign: "center", padding: 40, color: "#f4c9c9", background: "rgba(30, 8, 8, 0.7)" }}>{loadingRequests ? "Loading requests..." : t.admin.empty}</td></tr>
                       ) : requests.map(r => (
-                        <tr key={r.id} style={{ borderBottom: "1px solid rgba(127,106,248,0.18)" }}>
-                          <td style={{ padding: "12px 14px", color: "#7f6af8", fontWeight: 500 }}>{r.id}</td>
-                          <td style={{ padding: "12px 14px", color: "#f8f4ff" }}>{r.name}</td>
-                          <td style={{ padding: "12px 14px", color: "#d0c7ff" }}>{r.email}</td>
-                          <td style={{ padding: "12px 14px", color: "#d8d0ff" }}>{r.type}</td>
-                          <td style={{ padding: "12px 14px", color: "#d8d0ff" }}>{r.budget}</td>
+                        <tr key={r.id} style={{ borderBottom: "1px solid rgba(255, 72, 72, 0.14)", background: "rgba(20, 7, 7, 0.62)" }}>
+                          <td style={{ padding: "12px 14px", color: "#ff8f8f", fontWeight: 700 }}>{r.id}</td>
+                          <td style={{ padding: "12px 14px", color: "#fff2f2" }}>{r.name}</td>
+                          <td style={{ padding: "12px 14px", color: "#f0c9c9" }}>{r.email}</td>
+                          <td style={{ padding: "12px 14px", color: "#f4d2d2" }}>{r.type}</td>
+                          <td style={{ padding: "12px 14px", color: "#f4d2d2" }}>{r.budget}</td>
                           <td style={{ padding: "12px 14px" }}>
-                            <span style={{ background: statusBg[r.status], color: statusColor[r.status], padding: "3px 10px", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>
+                            <span style={{ background: statusBg[r.status], color: statusColor[r.status], padding: "3px 10px", borderRadius: 20, fontSize: 12, fontWeight: 700 }}>
                               {t.admin.statuses[r.status]}
                             </span>
                           </td>
-                          <td style={{ padding: "12px 14px", color: "#cfc6ff" }}>{r.date}</td>
+                          <td style={{ padding: "12px 14px", color: "#f0c5c5" }}>{r.date}</td>
                           <td style={{ padding: "12px 14px" }}>
-                            <div style={{ display: "flex", gap: 6 }}>
+                            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                               {["pending", "reviewed", "accepted", "declined"].map(s => (
                                 <button key={s} onClick={() => updateStatus(r.id, s)}
-                                  style={{ background: r.status === s ? statusBg[s] : "transparent", color: r.status === s ? statusColor[s] : "#b8b2e4", border: `1px solid ${r.status === s ? statusColor[s] + "44" : "rgba(127,106,248,0.24)"}`, borderRadius: 6, padding: "3px 8px", cursor: "pointer", fontSize: 11 }}>
+                                  style={{ background: r.status === s ? statusBg[s] : "transparent", color: r.status === s ? statusColor[s] : "#ffbdbd", border: `1px solid ${r.status === s ? statusColor[s] + "44" : "rgba(255, 72, 72, 0.3)"}`, borderRadius: 6, padding: "3px 8px", cursor: "pointer", fontSize: 11, fontWeight: 700 }}>
                                   {s.charAt(0).toUpperCase()}
                                 </button>
                               ))}
@@ -1215,25 +1156,25 @@ useEffect(() => {
               </div>
               <div style={{ marginTop: 34 }}>
                 <h3 style={{ color: "#fff", fontSize: 22, margin: "0 0 12px" }}>Ratings</h3>
-                <div style={{ overflowX: "auto", borderRadius: 14, border: "1px solid rgba(127,106,248,0.24)" }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14, background: "rgba(18, 15, 41, 0.88)" }}>
+                <div style={{ overflowX: "auto", borderRadius: 14, border: "1px solid rgba(255, 72, 72, 0.24)", background: "rgba(18, 6, 6, 0.88)", boxShadow: "0 18px 40px rgba(0,0,0,0.32)" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
                     <thead>
-                      <tr style={{ borderBottom: "1px solid rgba(127,106,248,0.24)" }}>
+                      <tr style={{ background: "linear-gradient(90deg, rgba(85, 9, 9, 0.98), rgba(42, 7, 7, 0.94))", borderBottom: "1px solid rgba(255, 72, 72, 0.24)" }}>
                         {["Name", "Rating", "Review", "Request ID", "Date"].map(col => (
-                          <th key={col} style={{ textAlign: isRTL ? "right" : "left", padding: "10px 14px", color: "#d8d0ff", fontWeight: 500, fontSize: 13 }}>{col}</th>
+                          <th key={col} style={{ textAlign: isRTL ? "right" : "left", padding: "12px 14px", color: "#ffe2e2", fontWeight: 700, fontSize: 13, letterSpacing: "0.6px", textTransform: "uppercase" }}>{col}</th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
                       {submittedTestimonials.length === 0 ? (
-                        <tr><td colSpan={5} style={{ textAlign: "center", padding: 32, color: "#d8d0ff" }}>No ratings yet.</td></tr>
+                        <tr><td colSpan={5} style={{ textAlign: "center", padding: 32, color: "#f4c9c9", background: "rgba(30, 8, 8, 0.7)" }}>No ratings yet.</td></tr>
                       ) : submittedTestimonials.map((rating, index) => (
-                        <tr key={`${rating.request_id || rating.name}-${rating.created_at || index}`} style={{ borderBottom: "1px solid rgba(127,106,248,0.18)" }}>
-                          <td style={{ padding: "12px 14px", color: "#f8f4ff", fontWeight: 500 }}>{rating.name}</td>
-                          <td style={{ padding: "12px 14px", color: "#fbbf24", whiteSpace: "nowrap" }}>{rating.rating} stars</td>
-                          <td style={{ padding: "12px 14px", color: "#d0c7ff", minWidth: 240 }}>{rating.text}</td>
-                          <td style={{ padding: "12px 14px", color: "#b9a9ff" }}>{rating.request_id || "Rating only"}</td>
-                          <td style={{ padding: "12px 14px", color: "#cfc6ff", whiteSpace: "nowrap" }}>{rating.created_at ? new Date(rating.created_at).toLocaleDateString() : ""}</td>
+                        <tr key={`${rating.request_id || rating.name}-${rating.created_at || index}`} style={{ borderBottom: "1px solid rgba(255, 72, 72, 0.14)", background: "rgba(20, 7, 7, 0.62)" }}>
+                          <td style={{ padding: "12px 14px", color: "#fff2f2", fontWeight: 700 }}>{rating.name}</td>
+                          <td style={{ padding: "12px 14px", color: "#ffcf68", whiteSpace: "nowrap", fontWeight: 700 }}>{rating.rating} stars</td>
+                          <td style={{ padding: "12px 14px", color: "#f0c9c9", minWidth: 240 }}>{rating.text}</td>
+                          <td style={{ padding: "12px 14px", color: "#ffb5b5" }}>{rating.request_id || "Rating only"}</td>
+                          <td style={{ padding: "12px 14px", color: "#f0c5c5", whiteSpace: "nowrap" }}>{rating.created_at ? new Date(rating.created_at).toLocaleDateString() : ""}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -1241,7 +1182,12 @@ useEffect(() => {
                 </div>
               </div>
               <div style={{ marginTop: 16, textAlign: "right" }}>
-                <button style={{ background: "transparent", color: "#d8d0ff", border: "none", cursor: "pointer", fontSize: 13 }} onClick={() => setAdminLoggedIn(false)}>
+                <button style={{ background: "transparent", color: "#d8d0ff", border: "none", cursor: "pointer", fontSize: 13 }} onClick={() => {
+                  setAdminLoggedIn(false);
+                  if (typeof window !== "undefined") {
+                    window.localStorage.removeItem("portfolio-admin");
+                  }
+                }}>
                   <i className="ti ti-logout" aria-hidden /> Logout
                 </button>
               </div>
@@ -1253,7 +1199,7 @@ useEffect(() => {
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid rgba(127,106,248,0.24)", padding: "32px 24px", textAlign: "center" }}>
         <p style={{ color: "#cfc6ff", fontSize: 14, margin: 0 }}>
-          &lt;<span style={{ color: "#b9a9ff" }}>NADJIB</span>/&gt; · Built with React · {new Date().getFullYear()} ·{" "}
+          Built with React · {new Date().getFullYear()} ·{" "}
           <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=nedjaoumnadjib@gmail.com&su=Project%20Request&body=Hello%20Nadjib%2C%0A%0AI%20would%20like%20to%20hire%20you%20for%20a%20project.%0A%0A" target="_blank" rel="noreferrer" style={{ color: "#b9a9ff", textDecoration: "none" }}>nedjaoumnadjib@gmail.com</a>
         </p>
       </footer>
